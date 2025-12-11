@@ -8,3 +8,4 @@ jmeter/verify_jmeter_installation_on_cluster.sh
 
 Run Jmeter Scenario (groovy)
 -------------------
+running scrip - run_jmeter_test.groovy
