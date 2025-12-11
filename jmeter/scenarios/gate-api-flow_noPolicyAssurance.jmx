@@ -1,0 +1,1648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="user" elementType="Argument">
+            <stringProp name="Argument.name">user</stringProp>
+            <stringProp name="Argument.value">${__P(USER,shai.forte+imagevulnerability@aquasec.com)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__P(USER,shai.forte@aquasec.com)}   ${__P(USER,administrator)}</stringProp>
+          </elementProp>
+          <elementProp name="password" elementType="Argument">
+            <stringProp name="Argument.name">password</stringProp>
+            <stringProp name="Argument.value">${__P(PASSWORD,@Password1234!)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__P(PASSWORD,@Password1234!)}   ${__P(PASSWORD,@Password1)}</stringProp>
+          </elementProp>
+          <elementProp name="sleep_time" elementType="Argument">
+            <stringProp name="Argument.name">sleep_time</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="aws-access_key" elementType="Argument">
+            <stringProp name="Argument.name">aws-access_key</stringProp>
+            <stringProp name="Argument.value">AKIAU3KKG6E4NMSTFD3S</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="aws-secret_key" elementType="Argument">
+            <stringProp name="Argument.name">aws-secret_key</stringProp>
+            <stringProp name="Argument.value">KDz6R6lzIBibkeYApquDhX0TLuk8Hnl6A86u2b6N</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="aqua_ip" elementType="Argument">
+            <stringProp name="Argument.name">aqua_ip</stringProp>
+            <stringProp name="Argument.value">${__P(AQUA_IP,api.cloudsploit.com)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__P(AQUA_IP,api.cloudsploit.com)}   ${__P(AQUA_IP,35.239.117.225)}</stringProp>
+          </elementProp>
+          <elementProp name="aqua_port" elementType="Argument">
+            <stringProp name="Argument.name">aqua_port</stringProp>
+            <stringProp name="Argument.value">${__P(AQUA_PORT,443)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__P(AQUA_PORT,443)}   ${__P(AQUA_PORT,8080)}</stringProp>
+          </elementProp>
+          <elementProp name="duration" elementType="Argument">
+            <stringProp name="Argument.name">duration</stringProp>
+            <stringProp name="Argument.value">${__P(DURATION,6000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="test_selected_transactions" elementType="Argument">
+            <stringProp name="Argument.name">test_selected_transactions</stringProp>
+            <stringProp name="Argument.value">${__P(TEST_SELECTED_TRANSACTIONS,ALL)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="threads" elementType="Argument">
+            <stringProp name="Argument.name">threads</stringProp>
+            <stringProp name="Argument.value">${__P(THREADS,5)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tpm" elementType="Argument">
+            <stringProp name="Argument.name">tpm</stringProp>
+            <stringProp name="Argument.value">${__P(TPM,200)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="be_type" elementType="Argument">
+            <stringProp name="Argument.name">be_type</stringProp>
+            <stringProp name="Argument.value">${__P(BE_TYPE,saas)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__P(BE_TYPE,saas)}   ${__P(BE_TYPE,on-prem)}</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">// Retrieve the &apos;be_type&apos; variable value
+def be_type = vars.get(&quot;be_type&quot;)
+
+// Determine the protocol based on the be_type value
+def protocol = be_type == &quot;on-prem&quot; ? &quot;http&quot; : &quot;https&quot;
+
+// Set the protocol variable for later use
+vars.put(&quot;protocol&quot;, protocol)
+</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+        <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+        <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.implementation"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.num_threads">${threads}</stringProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <stringProp name="ThreadGroup.duration">${duration}</stringProp>
+        <longProp name="ThreadGroup.delay">0</longProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">3</intProp>
+          <stringProp name="throughput">${tpm}</stringProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller - Login &amp; Preperations" enabled="true"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Login - SaaS or OnPrem" enabled="true"/>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - SaaS Login" enabled="true">
+              <stringProp name="IfController.condition">&apos;${be_type}&apos; == &apos;saas&apos;</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">false</boolProp>
+            </IfController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="T00_Login_SaaS" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.path">v2/signin</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;email&quot;:&quot;${user}&quot;,&quot;password&quot;:&quot;${password}&quot;}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="get token" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">aqua_token</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.token</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="custSeverity PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">import org.apache.commons.codec.binary.Base64;
+
+String token = vars.get(&quot;aqua_token&quot;);
+String[] tokenParts = token.split(&quot;\\.&quot;);
+String eseJsonStr = new String(Base64.decodeBase64(tokenParts[1]));
+
+def eseJson = new groovy.json.JsonSlurper().parseText(eseJsonStr);
+String eseUrl = eseJson.csp_metadata.urls.ese_url;
+vars.put(&quot;aqua_ip&quot;, eseUrl);</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - On-Prem Login" enabled="true">
+              <stringProp name="IfController.condition">&apos;${be_type}&apos; == &apos;on-prem&apos;</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">false</boolProp>
+            </IfController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="T00_Login_OnPrem" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/login</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;id&quot;: &quot;${user}&quot;,&quot;password&quot;: &quot;${password}&quot;}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="get token" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">aqua_token</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.token</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="custSeverity PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">import org.apache.commons.codec.binary.Base64;
+
+String token = vars.get(&quot;aqua_token&quot;);
+String[] tokenParts = token.split(&quot;\\.&quot;);
+String eseJsonStr = new String(Base64.decodeBase64(tokenParts[1]));
+
+def eseJson = new groovy.json.JsonSlurper().parseText(eseJsonStr);
+String eseUrl = eseJson.csp_metadata.urls.ese_url;
+vars.put(&quot;ese_address&quot;, eseUrl);</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+                <stringProp name="IfController.condition">${JMeterThread.last_sample_ok} != false</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+                <boolProp name="IfController.useExpression">true</boolProp>
+              </IfController>
+              <hashTree>
+                <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+                  <intProp name="ActionProcessor.action">2</intProp>
+                  <intProp name="ActionProcessor.target">2</intProp>
+                  <stringProp name="ActionProcessor.duration">0</stringProp>
+                </TestAction>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Preperation" enabled="true"/>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Defaults" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">Bearer ${aqua_token}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="NotShow_Delete Registries" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ecr_registry_get" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/registries</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">integration_names</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.[*].name</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="init loop_index" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">vars.put(&quot;loop_index&quot;,&quot;1&quot;)</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">prev.setIgnore()
+</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+                <stringProp name="WhileController.condition">${__groovy(vars.get(&quot;loop_index&quot;) &lt; vars.get(&quot;integration_names_matchNr&quot;) &amp;&amp; vars.get(&quot;integration_names_&quot;+vars.get(&quot;loop_index&quot;)).contains(&quot;ecr-registry&quot;))}</stringProp>
+              </WhileController>
+              <hashTree>
+                <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="index" enabled="true">
+                  <stringProp name="CounterConfig.start">1</stringProp>
+                  <stringProp name="CounterConfig.end"></stringProp>
+                  <stringProp name="CounterConfig.incr">1</stringProp>
+                  <stringProp name="CounterConfig.name">loop_index</stringProp>
+                  <stringProp name="CounterConfig.format"></stringProp>
+                  <boolProp name="CounterConfig.per_user">false</boolProp>
+                </CounterConfig>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ecr_registry_delete" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v1/registries/${integration_for_delete}</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="script">vars.put(&quot;integration_for_delete&quot;, vars.get(&quot;integration_names_&quot;+vars.get(&quot;loop_index&quot;)));</stringProp>
+                  </JSR223PreProcessor>
+                  <hashTree/>
+                  <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="script">prev.setIgnore()
+</stringProp>
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                  </JSR223PostProcessor>
+                  <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ecr_registry_get" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v1/registries</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+                    <stringProp name="JSONPostProcessor.referenceNames">integration_names</stringProp>
+                    <stringProp name="JSONPostProcessor.jsonPathExprs">$.[*].name</stringProp>
+                    <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                  </JSONPostProcessor>
+                  <hashTree/>
+                  <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="script">prev.setIgnore()
+</stringProp>
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                  </JSR223PostProcessor>
+                  <hashTree/>
+                </hashTree>
+                <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+                  <boolProp name="displayJMeterProperties">false</boolProp>
+                  <boolProp name="displayJMeterVariables">true</boolProp>
+                  <boolProp name="displaySystemProperties">false</boolProp>
+                </DebugSampler>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="NotShow_Delete_image_policy" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_image_policy" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/assurance_policy/image/ImagePolicy_test${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">aPolicy_json</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">// Set assurance_policy_exist to &quot;true&quot; initially
+vars.put(&quot;assurance_policy_exist&quot;, &quot;true&quot;)
+
+// Check if response code is 404 and the message contains &quot;assurance policy doesn&apos;t exist&quot;
+if (prev.getResponseCode() == &quot;404&quot; &amp;&amp; prev.getResponseDataAsString().contains(&quot;assurance policy doesn&apos;t exist&quot;)) {
+    // Mark the sampler as successful despite the 404 response
+    prev.setSuccessful(true)
+    // Update assurance_policy_exist to &quot;false&quot; if the specific message is found
+    vars.put(&quot;assurance_policy_exist&quot;, &quot;false&quot;)
+}
+</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223Assertion>
+                <hashTree/>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+                <stringProp name="IfController.condition">${assurance_policy_exist}</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+                <boolProp name="IfController.useExpression">true</boolProp>
+              </IfController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="delete_image_policy" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/assurance_policy/image/ImagePolicy_test${__eval(${__threadNum})}</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Transactions" enabled="true"/>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Defaults" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${aqua_token}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - T01_Image_Vulnerabilities_Dashboard" enabled="true">
+            <stringProp name="IfController.condition">&quot;${be_type}&quot; == &quot;saas&quot; &amp;&amp; 
+(&quot;${test_selected_transactions}&quot;.indexOf(&quot;T01_Image_Vulnerabilities_Dashboard&quot;) != -1 || 
+ &quot;${test_selected_transactions}&quot;.indexOf(&quot;ALL&quot;) != -1)</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T01_Image_Vulnerabilities_Dashboard" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults (filters)" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="include_vpatch_info" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">true</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">include_vpatch_info</stringProp>
+                    </elementProp>
+                    <elementProp name="show_negligible" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">true</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">show_negligible</stringProp>
+                    </elementProp>
+                    <elementProp name="page" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">1</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">page</stringProp>
+                    </elementProp>
+                    <elementProp name="pagesize" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">50</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">pagesize</stringProp>
+                    </elementProp>
+                    <elementProp name="skip_count" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">false</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">skip_count</stringProp>
+                    </elementProp>
+                    <elementProp name="hide_base_image" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">false</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">hide_base_image</stringProp>
+                    </elementProp>
+                    <elementProp name="use_estimated_count" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">false</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">use_estimated_count</stringProp>
+                    </elementProp>
+                    <elementProp name="severities" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">critical,high</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">severities</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.implementation"></stringProp>
+              </ConfigTestElement>
+              <hashTree/>
+              <com.blazemeter.jmeter.controller.ParallelSampler guiclass="com.blazemeter.jmeter.controller.ParallelControllerGui" testclass="com.blazemeter.jmeter.controller.ParallelSampler" testname="bzm - Parallel Controller" enabled="true">
+                <intProp name="MAX_THREAD_NUMBER">6</intProp>
+                <boolProp name="PARENT_SAMPLE">false</boolProp>
+                <boolProp name="LIMIT_MAX_THREAD_NUMBER">false</boolProp>
+              </com.blazemeter.jmeter.controller.ParallelSampler>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="01_funnel" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities/dashboard/images/widget/funnel</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="02_top_risky_resources" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities/dashboard/images/widget/top_risky_resources</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="03_top_vulnerable_images" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities/dashboard/images/widget/top_vulnerable_images</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+              </hashTree>
+              <com.blazemeter.jmeter.controller.ParallelSampler guiclass="com.blazemeter.jmeter.controller.ParallelControllerGui" testclass="com.blazemeter.jmeter.controller.ParallelSampler" testname="bzm - Parallel Controller" enabled="true">
+                <intProp name="MAX_THREAD_NUMBER">6</intProp>
+                <boolProp name="PARENT_SAMPLE">false</boolProp>
+                <boolProp name="LIMIT_MAX_THREAD_NUMBER">false</boolProp>
+              </com.blazemeter.jmeter.controller.ParallelSampler>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="04_top_unique_vulnerabilities" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities/dashboard/images/widget/top_risky_resources</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="05_risky_widgets" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities/dashboard/images/widget/risky_widgets</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="06_top_vulnerable_namespaces" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities/dashboard/images/widget/top_vulnerable_namespaces</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="07_top_vulnerable_clusters" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities/dashboard/images/widget/top_vulnerable_clusters</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="08_cvss_score" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities/dashboard/images/widget/cvss_score</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="09_epss_score" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities/dashboard/images/widget/epss_score</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - T02_SecurityRports_Audit" enabled="true">
+            <stringProp name="IfController.condition">&apos;${test_selected_transactions}&apos;.indexOf(&apos;T02_SecurityRports_Audit&apos;)!=-1 || &apos;${test_selected_transactions}&apos;.indexOf(&apos;ALL&apos;)!=-1</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_SecurityRports_Audit" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="audit_filters" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/audit/filters</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="filter_type" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">0</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">filter_type</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="audit_access_totals" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/audit/access_totals</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="time" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">hour</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">time</stringProp>
+                    </elementProp>
+                    <elementProp name="pagesize" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">50</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">pagesize</stringProp>
+                    </elementProp>
+                    <elementProp name="page" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">1</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">page</stringProp>
+                    </elementProp>
+                    <elementProp name="multi_alert" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">1,2,3</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">multi_alert</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="audit_request" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/audit</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="time" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">hour</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">time</stringProp>
+                    </elementProp>
+                    <elementProp name="pagesize" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">50</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">pagesize</stringProp>
+                    </elementProp>
+                    <elementProp name="page" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">1</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">page</stringProp>
+                    </elementProp>
+                    <elementProp name="concat" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">false</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">concat</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - T03_Administration_Integrations" enabled="true">
+            <stringProp name="IfController.condition">&apos;${test_selected_transactions}&apos;.indexOf(&apos;T03_Administration_Integrations&apos;)!=-1 || &apos;${test_selected_transactions}&apos;.indexOf(&apos;ALL&apos;)!=-1</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T03_01_Image_Registry_Create" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">true</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ecr_registry_create" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/registries</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;name&quot;:&quot;ecr-registry-${__eval(${__threadNum})}&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;AWS&quot;,&quot;url&quot;:&quot;eu-central-1&quot;,&quot;username&quot;:&quot;${aws-access_key}&quot;,&quot;password&quot;:&quot;${aws-secret_key}&quot;,&quot;icr_account_id&quot;:&quot;&quot;,&quot;acr_connection_type&quot;:&quot;&quot;,&quot;scanner_type&quot;:&quot;any&quot;,&quot;scanner_name&quot;:[],&quot;scanner_group_name&quot;:&quot;&quot;,&quot;existsing_scanners&quot;:[],&quot;scanner_name_added&quot;:[],&quot;scanner_name_removed&quot;:[],&quot;auto_pull&quot;:false,&quot;auto_pull_max&quot;:100,&quot;auto_pull_rescan&quot;:false,&quot;auto_pull_time&quot;:&quot;03:30&quot;,&quot;auto_pull_interval&quot;:1,&quot;pull_image_age&quot;:&quot;0D&quot;,&quot;pull_image_count&quot;:0,&quot;image_creation_date_condition&quot;:&quot;none&quot;,&quot;pull_image_tag_pattern&quot;:[&quot;:latest&quot;],&quot;always_pull_patterns&quot;:[],&quot;projectNameArray&quot;:[],&quot;pull_repo_patterns_excluded&quot;:[],&quot;architecture&quot;:&quot;&quot;,&quot;prefixes&quot;:[],&quot;options&quot;:[],&quot;webhook&quot;:{&quot;enabled&quot;:false,&quot;auth_token&quot;:&quot;&quot;,&quot;un_quarantine&quot;:false,&quot;url&quot;:&quot;&quot;},&quot;auto_scan_time&quot;:{&quot;auto_pull_day&quot;:1,&quot;time&quot;:&quot;03:30&quot;,&quot;week_days&quot;:[],&quot;iteration_type&quot;:&quot;none&quot;,&quot;iteration&quot;:1},&quot;auto_cleanup&quot;:true,&quot;subscription_id&quot;:&quot;&quot;,&quot;tenant_id&quot;:&quot;&quot;,&quot;client_cert&quot;:&quot;&quot;,&quot;client_key&quot;:&quot;&quot;}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T03_02_Image_Registry_Get" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ecr_registry_get" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/registries/ecr-registry-${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">integration_json</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T03_03_Image_Registry_Update" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ecr_registry_update" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/registries/ecr-registry-${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">PUT</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">${integration_json}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T03_04_Image_Registry_Delete" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ecr_registry_delete" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/registries/ecr-registry-${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - T04_Policies_Assurance_Policies" enabled="false">
+            <stringProp name="IfController.condition">&apos;${test_selected_transactions}&apos;.indexOf(&apos;T04_Policies_Assurance_Policies&apos;)!=-1 || &apos;${test_selected_transactions}&apos;.indexOf(&apos;ALL&apos;)!=-1</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T04_01_Image_Assurance_Add_Policy" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="create_image_policy" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/assurance_policy/image</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;assurance_type&quot;:&quot;image&quot;,&quot;name&quot;:&quot;ImagePolicy_test${__eval(${__threadNum})}&quot;,&quot;author&quot;:&quot;&quot;,&quot;registry&quot;:&quot;&quot;,&quot;lastupdate&quot;:&quot;2024-01-02T13:49:51.467Z&quot;,&quot;cvss_severity_enabled&quot;:false,&quot;cvss_severity&quot;:&quot;&quot;,&quot;cvss_severity_exclude_no_fix&quot;:false,&quot;custom_severity_enabled&quot;:false,&quot;maximum_score_enabled&quot;:false,&quot;maximum_score&quot;:0,&quot;vulnerability_score_range&quot;:[0,10],&quot;maximum_score_exclude_no_fix&quot;:false,&quot;aggregated_vulnerability&quot;:{},&quot;control_exclude_no_fix&quot;:false,&quot;custom_checks_enabled&quot;:false,&quot;scap_enabled&quot;:false,&quot;cves_black_list_enabled&quot;:false,&quot;packages_black_list_enabled&quot;:false,&quot;packages_white_list_enabled&quot;:false,&quot;only_none_root_users&quot;:false,&quot;trusted_base_images_enabled&quot;:false,&quot;scan_sensitive_data&quot;:true,&quot;audit_on_failure&quot;:true,&quot;fail_cicd&quot;:true,&quot;block_failed&quot;:true,&quot;disallow_malware&quot;:true,&quot;monitored_malware_paths&quot;:[],&quot;exceptional_monitored_malware_paths&quot;:[],&quot;blacklisted_licenses_enabled&quot;:false,&quot;blacklisted_licenses&quot;:[],&quot;whitelisted_licenses_enabled&quot;:false,&quot;whitelisted_licenses&quot;:[],&quot;custom_checks&quot;:null,&quot;scap_files&quot;:null,&quot;scope&quot;:{&quot;expression&quot;:&quot;&quot;,&quot;variables&quot;:[]},&quot;registries&quot;:null,&quot;labels&quot;:null,&quot;images&quot;:null,&quot;cves_black_list&quot;:null,&quot;packages_black_list&quot;:null,&quot;packages_white_list&quot;:null,&quot;allowed_images&quot;:null,&quot;trusted_base_images&quot;:null,&quot;read_only&quot;:false,&quot;force_microenforcer&quot;:false,&quot;docker_cis_enabled&quot;:false,&quot;kube_cis_enabled&quot;:false,&quot;enforce_excessive_permissions&quot;:false,&quot;function_integrity_enabled&quot;:false,&quot;dta_enabled&quot;:true,&quot;cves_white_list&quot;:[&quot;&quot;],&quot;cves_white_list_enabled&quot;:false,&quot;blacklist_permissions_enabled&quot;:false,&quot;blacklist_permissions&quot;:[],&quot;enabled&quot;:true,&quot;enforce&quot;:false,&quot;ignore_recently_published_vln&quot;:false,&quot;ignore_recently_published_vln_period&quot;:30,&quot;ignore_risk_resources_enabled&quot;:false,&quot;ignored_risk_resources&quot;:[&quot;&quot;],&quot;ignored_sensitive_resources&quot;:[],&quot;ignore_base_image_vln&quot;:false,&quot;application_scopes&quot;:[&quot;Global&quot;],&quot;auto_scan_enabled&quot;:true,&quot;auto_scan_configured&quot;:false,&quot;auto_scan_time&quot;:{&quot;iteration_type&quot;:&quot;once&quot;,&quot;time&quot;:&quot;&quot;,&quot;iteration&quot;:1,&quot;week_days&quot;:[]},&quot;required_labels_enabled&quot;:false,&quot;required_labels&quot;:null,&quot;forbidden_labels_enabled&quot;:false,&quot;forbidden_labels&quot;:null,&quot;vulnerability_exploitability&quot;:false,&quot;disallow_exploit_types&quot;:[],&quot;policy_settings&quot;:{&quot;enforce&quot;:false,&quot;warn&quot;:false,&quot;warning_message&quot;:&quot;&quot;,&quot;enforce_after_days&quot;:0},&quot;domain_name&quot;:&quot;&quot;,&quot;domain&quot;:&quot;&quot;,&quot;exclude_application_scopes&quot;:[],&quot;dta_severity&quot;:&quot;high&quot;,&quot;scan_nfs_mounts&quot;:false,&quot;scan_windows_registry&quot;:false,&quot;scan_process_memory&quot;:false,&quot;malware_action&quot;:&quot;delete&quot;,&quot;disallow&quot;:true,&quot;type&quot;:&quot;image&quot;,&quot;category&quot;:&quot;assurance&quot;}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T04_02_Image_Assurance_Get_Policy" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_image_policy" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/assurance_policy/image/ImagePolicy_test${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">aPolicy_json</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T04_03_Image_Assurance_Update_Policy" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="update_image_policy" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/assurance_policy/image/ImagePolicy_test${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">PUT</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">${aPolicy_json}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T04_04_Image_Assurance_Delete_Policy" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="delete_image_policy" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/assurance_policy/image/ImagePolicy_test${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - T05_Policies_Runtime_Policies" enabled="true">
+            <stringProp name="IfController.condition">&apos;${test_selected_transactions}&apos;.indexOf(&apos;T05_Policies_Runtime_Policies&apos;)!=-1 || &apos;${test_selected_transactions}&apos;.indexOf(&apos;ALL&apos;)!=-1</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T05_01_Container_Runtime_Add_Custome_Policy" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="runtime_policy_create" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/runtime_policies</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;name&quot;:&quot;ContainerPolicyDrift_${__eval(${__threadNum})}&quot;,&quot;author&quot;:&quot;&quot;,&quot;version&quot;:&quot;&quot;,&quot;lastupdate&quot;:0,&quot;enabled&quot;:true,&quot;type&quot;:&quot;runtime.policy&quot;,&quot;runtime_type&quot;:&quot;container&quot;,&quot;enforce&quot;:false,&quot;allowed_registries&quot;:{&quot;enabled&quot;:false,&quot;allowed_registries&quot;:[]},&quot;allowed_executables&quot;:{&quot;enabled&quot;:false,&quot;separate_executables&quot;:false,&quot;allow_root_executables&quot;:[],&quot;allow_executables&quot;:[]},&quot;executable_blacklist&quot;:{&quot;enabled&quot;:false,&quot;executables&quot;:[]},&quot;drift_prevention&quot;:{&quot;enabled&quot;:true,&quot;exec_lockdown&quot;:true,&quot;image_lockdown&quot;:false,&quot;prevent_privileged&quot;:false,&quot;exec_lockdown_white_list&quot;:[]},&quot;restricted_volumes&quot;:{&quot;enabled&quot;:false,&quot;volumes&quot;:[]},&quot;no_new_privileges&quot;:false,&quot;bypass_scope&quot;:{&quot;enabled&quot;:false,&quot;scope&quot;:{&quot;expression&quot;:&quot;&quot;,&quot;variables&quot;:[]}},&quot;limit_container_privileges&quot;:{&quot;enabled&quot;:false,&quot;privileged&quot;:false,&quot;netmode&quot;:false,&quot;pidmode&quot;:false,&quot;utsmode&quot;:false,&quot;usermode&quot;:false,&quot;ipcmode&quot;:false,&quot;prevent_root_user&quot;:false,&quot;prevent_low_port_binding&quot;:false,&quot;block_add_capabilities&quot;:false,&quot;use_host_user&quot;:false},&quot;scope&quot;:{&quot;expression&quot;:&quot;&quot;,&quot;variables&quot;:[]},&quot;only_registered_images&quot;:false,&quot;block_disallowed_images&quot;:false,&quot;block_non_compliant_workloads&quot;:false,&quot;auditing&quot;:{&quot;enabled&quot;:false,&quot;audit_all_processes&quot;:false,&quot;audit_process_cmdline&quot;:false,&quot;audit_all_network&quot;:false,&quot;audit_os_user_activity&quot;:false,&quot;audit_success_login&quot;:false,&quot;audit_failed_login&quot;:false,&quot;audit_user_account_management&quot;:false},&quot;blacklisted_os_users&quot;:{&quot;enabled&quot;:false,&quot;group_black_list&quot;:[],&quot;user_black_list&quot;:[]},&quot;whitelisted_os_users&quot;:{&quot;enabled&quot;:false,&quot;user_white_list&quot;:[],&quot;group_white_list&quot;:[]},&quot;default_security_profile&quot;:&quot;&quot;,&quot;enable_fork_guard&quot;:false,&quot;fork_guard_process_limit&quot;:0,&quot;enable_ip_reputation&quot;:false,&quot;enable_crypto_mining_dns&quot;:false,&quot;enable_port_scan_protection&quot;:false,&quot;file_block&quot;:{&quot;enabled&quot;:false,&quot;filename_block_list&quot;:[]},&quot;package_block&quot;:{&quot;enabled&quot;:false,&quot;packages_black_list&quot;:[]},&quot;linux_capabilities&quot;:{&quot;enabled&quot;:false,&quot;remove_linux_capabilities&quot;:[]},&quot;port_block&quot;:{&quot;enabled&quot;:false,&quot;block_inbound_ports&quot;:[],&quot;block_outbound_ports&quot;:[]},&quot;tripwire&quot;:{&quot;enabled&quot;:false,&quot;user_id&quot;:&quot;&quot;,&quot;user_password&quot;:&quot;&quot;,&quot;apply_on&quot;:[],&quot;serverless_app&quot;:&quot;&quot;},&quot;file_integrity_monitoring&quot;:{&quot;enabled&quot;:false,&quot;monitored_files&quot;:[],&quot;exceptional_monitored_files&quot;:[],&quot;monitored_files_processes&quot;:[],&quot;exceptional_monitored_files_processes&quot;:[],&quot;monitored_files_users&quot;:[],&quot;exceptional_monitored_files_users&quot;:[],&quot;monitored_files_read&quot;:false,&quot;monitored_files_modify&quot;:false,&quot;monitored_files_attributes&quot;:false,&quot;monitored_files_create&quot;:false,&quot;monitored_files_delete&quot;:false},&quot;registry_access_monitoring&quot;:{&quot;enabled&quot;:false,&quot;monitored_registry_paths&quot;:[],&quot;exceptional_monitored_registry_paths&quot;:[],&quot;monitored_registry_processes&quot;:[],&quot;exceptional_monitored_registry_processes&quot;:[],&quot;monitored_registry_users&quot;:[],&quot;exceptional_monitored_registry_users&quot;:[],&quot;monitored_registry_create&quot;:false,&quot;monitored_registry_read&quot;:false,&quot;monitored_registry_modify&quot;:false,&quot;monitored_registry_delete&quot;:false,&quot;monitored_registry_attributes&quot;:false},&quot;readonly_registry&quot;:{&quot;enabled&quot;:false,&quot;readonly_registry_paths&quot;:[],&quot;exceptional_readonly_registry_paths&quot;:[],&quot;readonly_registry_processes&quot;:[],&quot;exceptional_readonly_registry_processes&quot;:[],&quot;readonly_registry_users&quot;:[],&quot;exceptional_readonly_registry_users&quot;:[]},&quot;system_integrity_protection&quot;:{&quot;enabled&quot;:false,&quot;audit_systemtime_change&quot;:false,&quot;windows_services_monitoring&quot;:false,&quot;monitor_audit_log_integrity&quot;:false},&quot;container_exec&quot;:{&quot;enabled&quot;:false,&quot;block_container_exec&quot;:false,&quot;block_container_exec_proc_white_list&quot;:[]},&quot;vuln_id&quot;:0,&quot;repo_id&quot;:0,&quot;heuristic_ref_id&quot;:0,&quot;image_id&quot;:0,&quot;is_auto_generated&quot;:false,&quot;application_scopes&quot;:[&quot;Global&quot;],&quot;malware_scan_options&quot;:{&quot;enabled&quot;:false,&quot;action&quot;:&quot;&quot;,&quot;include_directories&quot;:[],&quot;exclude_directories&quot;:[],&quot;exclude_processes&quot;:[]},&quot;reverse_shell&quot;:{&quot;enabled&quot;:false,&quot;block_reverse_shell&quot;:false,&quot;reverse_shell_proc_white_list&quot;:[],&quot;reverse_shell_ip_white_list&quot;:[]},&quot;registry&quot;:&quot;&quot;,&quot;block_fileless_exec&quot;:false,&quot;block_non_k8s_containers&quot;:false,&quot;audit_brute_force_login&quot;:false,&quot;failed_kubernetes_checks&quot;:{&quot;enabled&quot;:false,&quot;failed_checks&quot;:[]},&quot;enforce_after_days&quot;:0,&quot;domain_name&quot;:&quot;&quot;,&quot;domain&quot;:&quot;&quot;,&quot;exclude_application_scopes&quot;:[]}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T05_02_Container_Runtime_Get_Custome_Policy" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="runtime_policy_get" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/runtime_policies/ContainerPolicyDrift_${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">rtPolicy_json</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T05_03_Container_Runtime_Get_Custome_Policy" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="runtime_policy_update" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/runtime_policies/ContainerPolicyDrift_${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">PUT</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">${rtPolicy_json}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T05_04_Container_Runtime_Delete_Custome_Policy" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="runtime_policy_delete" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/runtime_policies/ContainerPolicyDrift_${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - T06_Administration_Enforcers" enabled="true">
+            <stringProp name="IfController.condition">&apos;${test_selected_transactions}&apos;.indexOf(&apos;T06_Administration_Enforcers&apos;)!=-1 || &apos;${test_selected_transactions}&apos;.indexOf(&apos;ALL&apos;)!=-1</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T06_01_Enforcer_Group_Create" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="enforcer_group_create" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/hostsbatch</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;allowed_labels&quot;:[],&quot;allowed_secrets&quot;:[],&quot;container_activity_protection&quot;:false,&quot;enforce&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;gateways&quot;:[&quot;aqua-gateway-csp-9b9fff5f9-bzlfd_gateway&quot;,&quot;aqua-gateway-headless-csp-image-service-85b7f96fbd-9tnnm_gateway&quot;,&quot;aqua-gateway-headless-csp-audit-556dd96b64-5rkhm_gateway&quot;,&quot;aqua-gateway-headless-csp-gw-channel-58969b585f-lh6rz_gateway&quot;,&quot;aqua-gateway-headless-csp-metric-handler-79cb5fc8bb-w5rh6_gateway&quot;,&quot;aqua-gateway-headless-csp-kube-enforcer-7db956c84c-2pk85_gateway&quot;,&quot;aqua-gateway-headless-csp-workloads-645dd44f7c-jh2pg_gateway&quot;,&quot;aqua-gateway-headless-csp-policies-service-586bb8f9ff-bk75h_gateway&quot;,&quot;aqua-gateway-headless-csp-scan-service-677fc5fbd8-wx4zf_gateway&quot;,&quot;aqua-gateway-csp-9b9fff5f9-nzvpg_gateway&quot;,&quot;aqua-gateway-headless-csp-cndr-cloud-6cb498dffb-zt6nm_gateway&quot;],&quot;host_os&quot;:&quot;Linux&quot;,&quot;hostname&quot;:&quot;&quot;,&quot;id&quot;:&quot;perf-test-${__eval(${__threadNum})}&quot;,&quot;image_assurance&quot;:false,&quot;logicalname&quot;:&quot;&quot;,&quot;network_protection&quot;:false,&quot;behavioral_engine&quot;:false,&quot;host_behavioral_engine&quot;:false,&quot;orchestrator&quot;:{},&quot;runtime_type&quot;:&quot;docker&quot;,&quot;sync_host_images&quot;:true,&quot;syscall_enabled&quot;:false,&quot;token&quot;:&quot;&quot;,&quot;type&quot;:&quot;agent&quot;,&quot;user_access_control&quot;:false,&quot;risk_explorer_auto_discovery&quot;:false,&quot;allow_kube_enforcer_audit&quot;:true,&quot;auto_discovery_enabled&quot;:true,&quot;auto_discover_configure_registries&quot;:false,&quot;auto_scan_discovered_images_running_containers&quot;:false,&quot;admission_control&quot;:true,&quot;block_admission_control&quot;:false,&quot;micro_enforcer_injection&quot;:false,&quot;micro_enforcer_image_name&quot;:&quot;&quot;,&quot;micro_enforcer_secrets_name&quot;:&quot;&quot;,&quot;auto_copy_secrets&quot;:true,&quot;micro_enforcer_certs_secrets_name&quot;:&quot;&quot;,&quot;kube_bench_image_name&quot;:&quot;&quot;,&quot;antivirus_protection&quot;:false,&quot;container_antivirus_protection&quot;:false,&quot;is_set&quot;:false,&quot;host_assurance&quot;:true,&quot;host_forensics_collection&quot;:false,&quot;container_forensics_collection&quot;:false,&quot;runtime_policy_name&quot;:&quot;&quot;,&quot;allowed_labels_temp&quot;:[],&quot;allowed_secrets_temp&quot;:[],&quot;host_protection&quot;:false,&quot;host_network_protection&quot;:false,&quot;host_user_protection&quot;:false,&quot;enforcer_image_name&quot;:&quot;registry.aquasec.com/enforcer:2022.4&quot;}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T06_02_Enforcer_Group_Delete" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="enforcer_group_delete" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/hostsbatch/perf-test-${__eval(${__threadNum})}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - T07_SecurityRports_Vulnerabilities" enabled="true">
+            <stringProp name="IfController.condition">&apos;${test_selected_transactions}&apos;.indexOf(&apos;T07_SecurityRports_Vulnerabilities&apos;)!=-1 || &apos;${test_selected_transactions}&apos;.indexOf(&apos;ALL&apos;)!=-1</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T07_SecurityRports_Vulnerabilities_Get" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - On-Prem Login" enabled="true">
+                <stringProp name="IfController.condition">&apos;${be_type}&apos; == &apos;on-prem&apos;</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+                <boolProp name="IfController.useExpression">false</boolProp>
+              </IfController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_vulnerabilities" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities/images/list</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="include_vpatch_info" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">include_vpatch_info</stringProp>
+                      </elementProp>
+                      <elementProp name="show_negligible" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">show_negligible</stringProp>
+                      </elementProp>
+                      <elementProp name="page" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">1</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">page</stringProp>
+                      </elementProp>
+                      <elementProp name="pagesize" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">50</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">pagesize</stringProp>
+                      </elementProp>
+                      <elementProp name="hide_base_image" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">hide_base_image</stringProp>
+                      </elementProp>
+                      <elementProp name="severities" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">critical,high,medium</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">severities</stringProp>
+                      </elementProp>
+                      <elementProp name="order_by" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">-aqua_severity</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">order_by</stringProp>
+                      </elementProp>
+                      <elementProp name="use_estimated_count" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">use_estimated_count</stringProp>
+                      </elementProp>
+                      <elementProp name="skip_count" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">skip_count</stringProp>
+                      </elementProp>
+                      <elementProp name="acknowledge_status" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">acknowledge_status</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - SaaS Login" enabled="true">
+                <stringProp name="IfController.condition">&apos;${be_type}&apos; == &apos;saas&apos;</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+                <boolProp name="IfController.useExpression">false</boolProp>
+              </IfController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_vulnerabilities" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/hub/findings/vulnerabilities/images/list</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="include_vpatch_info" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">include_vpatch_info</stringProp>
+                      </elementProp>
+                      <elementProp name="page" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">1</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">page</stringProp>
+                      </elementProp>
+                      <elementProp name="pagesize" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">50</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">pagesize</stringProp>
+                      </elementProp>
+                      <elementProp name="skip_count" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">skip_count</stringProp>
+                      </elementProp>
+                      <elementProp name="hide_base_image" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">hide_base_image</stringProp>
+                      </elementProp>
+                      <elementProp name="show_negligible" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">show_negligible</stringProp>
+                      </elementProp>
+                      <elementProp name="use_estimated_count" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">use_estimated_count</stringProp>
+                      </elementProp>
+                      <elementProp name="severities" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">critical,high,medium</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">severities</stringProp>
+                      </elementProp>
+                      <elementProp name="acknowledge_status" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">acknowledge_status</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+              </hashTree>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">all_names</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].name</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">// Get the total number of matches
+def matchCount = vars.get(&quot;all_names_matchNr&quot;)?.toInteger() ?: 0
+
+// Check if matchCount is positive before generating a random index
+if (matchCount &gt; 0) {
+    // Generate a random number between 1 and matchCount (inclusive)
+    def randomIndex = (1..matchCount).toList().get(new Random().nextInt(matchCount))
+
+    // Retrieve the randomly selected all_names value
+    def randomName = vars.get(&quot;all_names_&quot; + randomIndex)
+
+    // Store the result in a new variable
+    vars.put(&quot;VulToAcknowledge&quot;, randomName)
+} else {
+    log.error(&quot;No matches found in &apos;all_names_matchNr&apos;. Check JSON extraction or data.&quot;)
+    vars.put(&quot;VulToAcknowledge&quot;, &quot;No valid name found&quot;)
+}
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T07_SecurityRports_Vulnerabilities_Custome_Severity" enabled="false">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="custom_severity" enabled="true">
+                <stringProp name="HTTPSampler.domain">${ese_address}</stringProp>
+                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/custom_vulnerabilities</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+  &quot;custom_vulnerabilities&quot;: [&#xd;
+    {&#xd;
+      &quot;cve&quot;: &quot;${cve_name}&quot;,&#xd;
+      &quot;severity&quot;: &quot;high&quot;,&#xd;
+      &quot;notes&quot;: &quot;&quot;,&#xd;
+      &quot;os&quot;: &quot;&quot;&#xd;
+    }&#xd;
+  ]&#xd;
+}&#xd;
+</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - T08_Acknowledgement" enabled="true">
+            <stringProp name="IfController.condition">&apos;${test_selected_transactions}&apos;.indexOf(&apos;T08_Acknowledgement&apos;)!=-1 || &apos;${test_selected_transactions}&apos;.indexOf(&apos;ALL&apos;)!=-1</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T08_01_Acknowledgement_Create" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="acknowledgement_create" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+	&quot;issues&quot;: [&#xd;
+		{&#xd;
+			&quot;issue_type&quot;: &quot;vulnerability&quot;,&#xd;
+			&quot;issue_name&quot;: &quot;${VulToAcknowledge}&quot;,&#xd;
+			&quot;resource_type&quot;: &quot;package&quot;,&#xd;
+			&quot;resource_cpe&quot;: &quot;pkg:/java:*:org.springframework.boot#spring-boot-actuator-autoconfigure:2.3.9.RELEASE&quot;,&#xd;
+			&quot;resource_name&quot;: &quot;spring-boot-actuator-autoconfigure&quot;,&#xd;
+			&quot;resource_version&quot;: &quot;2.3.9.RELEASE&quot;,&#xd;
+			&quot;resource_path&quot;: &quot;/spring-boot-cxf-jaxws-7.9.0.fuse-sb2-790047-redhat-00002.jar:BOOT-INF/lib/spring-boot-actuator-autoconfigure-2.3.9.RELEASE.jar&quot;,&#xd;
+			&quot;docker_id&quot;: &quot;&quot;,&#xd;
+			&quot;registry_name&quot;: &quot;scale-images-set-10&quot;,&#xd;
+			&quot;image_name&quot;: &quot;scale-images-set-10:alpine-3.15.0-184d55ab38&quot;&#xd;
+		}&#xd;
+	],&#xd;
+	&quot;comment&quot;: &quot;${VulToAcknowledge}_Comment&quot;&#xd;
+}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T08_02_Acknowledgement_Get" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="acknowledgement_get" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge?page=1&amp;page_size=50&amp;text_search=${VulToAcknowledge}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-1220087214">${VulToAcknowledge}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                </ResponseAssertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T08_01_Acknowledgement_Delete" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="acknowledgement_delete" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+	&quot;issue_type&quot;: &quot;vulnerability&quot;,&#xd;
+	&quot;issue_name&quot;: &quot;${VulToAcknowledge}&quot;,&#xd;
+	&quot;resource_type&quot;: &quot;package&quot;,&#xd;
+	&quot;resource_cpe&quot;: &quot;pkg:/java:*:org.springframework.boot#spring-boot-actuator-autoconfigure:2.3.9.RELEASE&quot;,&#xd;
+	&quot;resource_name&quot;: &quot;spring-boot-actuator-autoconfigure&quot;,&#xd;
+	&quot;resource_version&quot;: &quot;2.3.9.RELEASE&quot;,&#xd;
+	&quot;resource_path&quot;: &quot;/spring-boot-cxf-jaxws-7.9.0.fuse-sb2-790047-redhat-00002.jar:BOOT-INF/lib/spring-boot-actuator-autoconfigure-2.3.9.RELEASE.jar&quot;,&#xd;
+	&quot;docker_id&quot;: &quot;&quot;,&#xd;
+	&quot;registry_name&quot;: &quot;scale-images-set-10&quot;,&#xd;
+	&quot;image_name&quot;: &quot;scale-images-set-10:alpine-3.15.0-184d55ab38&quot;&#xd;
+}&#xd;
+</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.SynthesisReportGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Synthesis Report (filtered)" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <longProp name="interval_grouping">500</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

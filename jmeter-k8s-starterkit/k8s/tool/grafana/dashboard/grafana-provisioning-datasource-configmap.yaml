@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: influxdb-datasource-provisioning
+data:
+  datasources.yaml: |-
+    apiVersion: 1
+    datasources:
+    - name: InfluxDB-Jmeter
+      type: influxdb
+      access: proxy
+      url: http://influxdb:8086/
+      database: jmeter
+      user: user
+      password: password
+      isDefault: false
+      editable: true
+    - name: InfluxDB-Telegraf
+      type: influxdb
+      access: proxy
+      url: http://influxdb:8086/
+      database: telegraf
+      user: user
+      password: password
+      isDefault: false
+      editable: true

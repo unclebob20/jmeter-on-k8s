@@ -1,0 +1,2755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="user" elementType="Argument">
+            <stringProp name="Argument.name">user</stringProp>
+            <stringProp name="Argument.value">${__P(USER,saidurga.emandi+slim1728299975@aquasec.com)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__P(USER,shai.forte@aquasec.com)}   ${__P(USER,administrator)}</stringProp>
+          </elementProp>
+          <elementProp name="password" elementType="Argument">
+            <stringProp name="Argument.name">password</stringProp>
+            <stringProp name="Argument.value">${__P(PASSWORD,@Password1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__P(PASSWORD,@Password1234!)}   ${__P(PASSWORD,@Password1)}</stringProp>
+          </elementProp>
+          <elementProp name="sleep_time" elementType="Argument">
+            <stringProp name="Argument.name">sleep_time</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="aws-access_key" elementType="Argument">
+            <stringProp name="Argument.name">aws-access_key</stringProp>
+            <stringProp name="Argument.value">AKIAU3KKG6E4NMSTFD3S</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="aws-secret_key" elementType="Argument">
+            <stringProp name="Argument.name">aws-secret_key</stringProp>
+            <stringProp name="Argument.value">KDz6R6lzIBibkeYApquDhX0TLuk8Hnl6A86u2b6N</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="aqua_ip" elementType="Argument">
+            <stringProp name="Argument.name">aqua_ip</stringProp>
+            <stringProp name="Argument.value">${__P(AQUA_IP,stage.api.cloudsploit.com)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__P(AQUA_IP,api.cloudsploit.com)}   ${__P(AQUA_IP,35.239.117.225)}</stringProp>
+          </elementProp>
+          <elementProp name="aqua_port" elementType="Argument">
+            <stringProp name="Argument.name">aqua_port</stringProp>
+            <stringProp name="Argument.value">${__P(AQUA_PORT,443)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__P(AQUA_PORT,443)}   ${__P(AQUA_PORT,8080)}</stringProp>
+          </elementProp>
+          <elementProp name="duration" elementType="Argument">
+            <stringProp name="Argument.name">duration</stringProp>
+            <stringProp name="Argument.value">${__P(DURATION,900)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="test_selected_transactions" elementType="Argument">
+            <stringProp name="Argument.name">test_selected_transactions</stringProp>
+            <stringProp name="Argument.value">${__P(TEST_SELECTED_TRANSACTIONS,ALL)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="threads" elementType="Argument">
+            <stringProp name="Argument.name">threads</stringProp>
+            <stringProp name="Argument.value">${__P(THREADS,2)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tpm" elementType="Argument">
+            <stringProp name="Argument.name">tpm</stringProp>
+            <stringProp name="Argument.value">${__P(TPM,200)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="be_type" elementType="Argument">
+            <stringProp name="Argument.name">be_type</stringProp>
+            <stringProp name="Argument.value">${__P(BE_TYPE,saas)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__P(BE_TYPE,saas)}   ${__P(BE_TYPE,on-prem)}</stringProp>
+          </elementProp>
+          <elementProp name="ramp_up" elementType="Argument">
+            <stringProp name="Argument.name">ramp_up</stringProp>
+            <stringProp name="Argument.value">${__P(RAMP_UP,120)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ack_scope" elementType="Argument">
+            <stringProp name="Argument.name">ack_scope</stringProp>
+            <stringProp name="Argument.value">${__P(ACK_SCOPE,image)}</stringProp>
+            <stringProp name="Argument.desc">${__P(ACK_SCOPE,image)} ${__P(ACK_SCOPE,repo)} ${__P(ACK_SCOPE,all)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="execute_unack" elementType="Argument">
+            <stringProp name="Argument.name">execute_unack</stringProp>
+            <stringProp name="Argument.value">${__P(EXECUTE_UNACK,false)}</stringProp>
+            <stringProp name="Argument.desc">${__P(EXECUTE_UNACK,true)} ${__P(EXECUTE_UNACK,false)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">// Retrieve the &apos;be_type&apos; variable value
+def be_type = vars.get(&quot;be_type&quot;)
+
+// Determine the protocol based on the be_type value
+def protocol = be_type == &quot;on-prem&quot; ? &quot;http&quot; : &quot;https&quot;
+
+// Set the protocol variable for later use
+vars.put(&quot;protocol&quot;, protocol)
+</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+        <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+        <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.implementation"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+        <intProp name="calcMode">3</intProp>
+        <stringProp name="throughput">${tpm}</stringProp>
+      </ConstantThroughputTimer>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group - Acknowledgements">
+        <stringProp name="ThreadGroup.num_threads">${threads}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${ramp_up}</stringProp>
+        <stringProp name="ThreadGroup.duration">${duration}</stringProp>
+        <longProp name="ThreadGroup.delay">0</longProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller - Login &amp; Preperations" enabled="true"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Login - SaaS or OnPrem" enabled="true"/>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - SaaS Login" enabled="true">
+              <stringProp name="IfController.condition">&apos;${be_type}&apos; == &apos;saas&apos;</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">false</boolProp>
+            </IfController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="T00_Login_SaaS" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.path">v2/signin</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;email&quot;:&quot;${user}&quot;,&quot;password&quot;:&quot;${password}&quot;}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="get token" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">aqua_token</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.token</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="custSeverity PostProcessor" enabled="false">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">import org.apache.commons.codec.binary.Base64
+import org.json.JSONObject
+import java.util.Base64
+
+String token = vars.get(&quot;aqua_token&quot;)
+if (!token) {
+    log.error(&quot;aqua_token is null or empty&quot;)
+    return
+}
+
+log.info(&quot;Token: &quot; + token)
+String[] tokenParts = token.split(&quot;\\.&quot;)
+
+if (tokenParts.length &lt; 2) {
+    log.error(&quot;Invalid JWT token format&quot;)
+    return
+}
+
+String eseJsonStr = new String(Base64.getUrlDecoder().decode(tokenParts[1]))
+log.info(&quot;eseJsonString: &quot; + eseJsonStr)
+
+// Parse JSON using JSONObject (no need for groovy.json.JsonSlurper)
+JSONObject eseJson = new JSONObject(eseJsonStr)
+
+if (!eseJson.has(&quot;csp_metadata&quot;) || !eseJson.getJSONObject(&quot;csp_metadata&quot;).has(&quot;urls&quot;) || !eseJson.getJSONObject(&quot;csp_metadata&quot;).getJSONObject(&quot;urls&quot;).has(&quot;ese_url&quot;)) {
+    log.error(&quot;ese_url not found in token payload&quot;)
+    return
+}
+
+String eseUrl = eseJson.getJSONObject(&quot;csp_metadata&quot;).getJSONObject(&quot;urls&quot;).getString(&quot;ese_url&quot;)
+log.info(&quot;ese URL: &quot; + eseUrl)
+
+vars.put(&quot;aqua_ip&quot;, eseUrl)
+log.info(&quot;Aqua URL: &quot; + eseUrl)
+</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="custSeverity PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">import org.apache.commons.codec.binary.Base64;
+
+String token = vars.get(&quot;aqua_token&quot;);
+String[] tokenParts = token.split(&quot;\\.&quot;);
+String eseJsonStr = new String(Base64.decodeBase64(tokenParts[1]));
+
+def eseJson = new groovy.json.JsonSlurper().parseText(eseJsonStr);
+String eseUrl = eseJson.csp_metadata.urls.ese_url;
+vars.put(&quot;aqua_ip&quot;, eseUrl);</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - On-Prem Login" enabled="true">
+              <stringProp name="IfController.condition">&apos;${be_type}&apos; == &apos;on-prem&apos;</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">false</boolProp>
+            </IfController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="T00_Login_OnPrem" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/login</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;id&quot;: &quot;${user}&quot;,&quot;password&quot;: &quot;${password}&quot;}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="get token" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">aqua_token</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.token</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="custSeverity PostProcessor" enabled="false">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">import org.apache.commons.codec.binary.Base64
+import org.json.JSONObject
+import java.util.Base64
+
+String token = vars.get(&quot;aqua_token&quot;)
+if (!token) {
+    log.error(&quot;aqua_token is null or empty&quot;)
+    return
+}
+
+log.info(&quot;Token: &quot; + token)
+String[] tokenParts = token.split(&quot;\\.&quot;)
+
+if (tokenParts.length &lt; 2) {
+    log.error(&quot;Invalid JWT token format&quot;)
+    return
+}
+
+String eseJsonStr = new String(Base64.getUrlDecoder().decode(tokenParts[1]))
+log.info(&quot;eseJsonString: &quot; + eseJsonStr)
+
+// Parse JSON using JSONObject (no need for groovy.json.JsonSlurper)
+JSONObject eseJson = new JSONObject(eseJsonStr)
+
+if (!eseJson.has(&quot;csp_metadata&quot;) || !eseJson.getJSONObject(&quot;csp_metadata&quot;).has(&quot;urls&quot;) || !eseJson.getJSONObject(&quot;csp_metadata&quot;).getJSONObject(&quot;urls&quot;).has(&quot;ese_url&quot;)) {
+    log.error(&quot;ese_url not found in token payload&quot;)
+    return
+}
+
+String eseUrl = eseJson.getJSONObject(&quot;csp_metadata&quot;).getJSONObject(&quot;urls&quot;).getString(&quot;ese_url&quot;)
+log.info(&quot;ese URL: &quot; + eseUrl)
+
+vars.put(&quot;aqua_ip&quot;, eseUrl)
+log.info(&quot;Aqua URL: &quot; + eseUrl)
+</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="custSeverity PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">import org.apache.commons.codec.binary.Base64;
+
+String token = vars.get(&quot;aqua_token&quot;);
+String[] tokenParts = token.split(&quot;\\.&quot;);
+String eseJsonStr = new String(Base64.decodeBase64(tokenParts[1]));
+
+def eseJson = new groovy.json.JsonSlurper().parseText(eseJsonStr);
+String eseUrl = eseJson.csp_metadata.urls.ese_url;
+vars.put(&quot;ese_address&quot;, eseUrl);</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+                <stringProp name="IfController.condition">${JMeterThread.last_sample_ok} != false</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+                <boolProp name="IfController.useExpression">true</boolProp>
+              </IfController>
+              <hashTree>
+                <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+                  <intProp name="ActionProcessor.action">2</intProp>
+                  <intProp name="ActionProcessor.target">2</intProp>
+                  <stringProp name="ActionProcessor.duration">0</stringProp>
+                </TestAction>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Transactions Section"/>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Defaults" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${aqua_token}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - T01_Get_List_Of_Registries_And_Repositories" enabled="true">
+            <stringProp name="IfController.condition">&apos;${test_selected_transactions}&apos;.indexOf(&apos;T08_Get_List_Of_Registries_And_Repositories&apos;)!=-1 || &apos;${test_selected_transactions}&apos;.indexOf(&apos;ALL&apos;)!=-1</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T01_01_Get_List_Of_Registries" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_registries" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v1/registries</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">all_registries</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.[*].name</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+              </JSONPostProcessor>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T01_02_Filter_Repositories" enabled="true">
+              <boolProp name="TransactionController.parent">true</boolProp>
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="filter_repositories" enabled="true">
+                <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.path">api/v2/repositories</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="page" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">1</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">page</stringProp>
+                    </elementProp>
+                    <elementProp name="pagesize" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">200</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">pagesize</stringProp>
+                    </elementProp>
+                    <elementProp name="include_totals" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">true</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">include_totals</stringProp>
+                    </elementProp>
+                    <elementProp name="order_by" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">name</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">order_by</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - list_of_repos" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">repo_name</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].name</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - repos_count" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">repo_count</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.count</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - number of images per repo" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">number_of_images_per_repo</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].num_images</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - registry name" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">registry_name</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].registry</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - Distribute Repos across Threads" enabled="false">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">import java.util.Random;
+
+// Get repo count and thread count
+int repoCount = vars.get(&quot;repo_count&quot;) as Integer
+int threadCount = ctx.getThreadGroup().getNumThreads()
+
+log.info(&quot;Repo count: &quot; + repoCount)
+log.info(&quot;Threads count: &quot; + threadCount)
+
+if (repoCount &lt; threadCount) {
+    // Assign first repo to all threads
+    vars.put(&quot;assigned_repo&quot;, vars.get(&quot;repo_name_1&quot;))
+    vars.put(&quot;assigned_registry&quot;, vars.get(&quot;registry_name_1&quot;))
+    vars.put(&quot;assigned_repo_images_count&quot;, vars.get(&quot;number_of_images_per_repo_1&quot;))
+} else {
+    // Generate a random repo index
+    Random rand = new Random()
+    int randomIndex = rand.nextInt(repoCount) + 1  // Random number between 1 and repoCount
+
+    // Assign values from randomly selected repo
+    vars.put(&quot;assigned_repo&quot;, vars.get(&quot;repo_name_&quot; + randomIndex))
+    vars.put(&quot;assigned_registry&quot;, vars.get(&quot;registry_name_&quot; + randomIndex))
+    vars.put(&quot;assigned_repo_images_count&quot;, vars.get(&quot;number_of_images_per_repo_&quot; + randomIndex))
+}
+
+// Log the assigned values
+log.info(&quot;Assigned Repo: &quot; + vars.get(&quot;assigned_repo&quot;) + 
+         &quot; Assigned Registry: &quot; + vars.get(&quot;assigned_registry&quot;) + 
+         &quot; No of Images: &quot; + vars.get(&quot;assigned_repo_images_count&quot;))
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - Distribute Repos across Threads" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">import java.util.Random
+
+// Get repo count and thread count
+int repoCount = vars.get(&quot;repo_count&quot;)?.toInteger() ?: 0
+int threadCount = ctx.getThreadGroup().getNumThreads()
+
+log.info(&quot;Repo count: ${repoCount}&quot;)
+log.info(&quot;Threads count: ${threadCount}&quot;)
+
+if (repoCount &lt; 1) {
+    log.error(&quot;Invalid repo count: ${repoCount}. Ensure repo_count is set correctly.&quot;)
+    return
+}
+
+// Collect valid registry indexes (excluding &quot;Host Images&quot;)
+List&lt;Integer&gt; validIndexes = []
+for (int i = 1; i &lt;= repoCount; i++) {
+    String registryName = vars.get(&quot;registry_name_${i}&quot;)
+    if (registryName &amp;&amp; !registryName.equalsIgnoreCase(&quot;Host Images&quot;)) {
+        validIndexes.add(i)
+    }
+}
+
+// Check if we have valid repositories
+if (validIndexes.isEmpty()) {
+    log.error(&quot;No valid registries found. Only &apos;Host Images&apos; is present.&quot;)
+    return
+}
+
+int selectedIndex
+if (repoCount &lt; threadCount) {
+    // Assign first valid repo to all threads
+    selectedIndex = validIndexes.get(0)
+} else {
+    // Pick a random index from valid registries
+    Random rand = new Random()
+    selectedIndex = validIndexes.get(rand.nextInt(validIndexes.size()))
+}
+
+// Assign values from the randomly selected valid registry
+vars.put(&quot;assigned_repo&quot;, vars.get(&quot;repo_name_${selectedIndex}&quot;))
+vars.put(&quot;assigned_registry&quot;, vars.get(&quot;registry_name_${selectedIndex}&quot;))
+vars.put(&quot;assigned_repo_images_count&quot;, vars.get(&quot;number_of_images_per_repo_${selectedIndex}&quot;))
+
+// Log the assigned values
+log.info(&quot;Assigned Repo: ${vars.get(&apos;assigned_repo&apos;)}, &quot; + 
+         &quot;Assigned Registry: ${vars.get(&apos;assigned_registry&apos;)}, &quot; + 
+         &quot;No of Images: ${vars.get(&apos;assigned_repo_images_count&apos;)}&quot;)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - T02_Get_Vulnerability_Info_per_resource_and_Acknowledge">
+            <stringProp name="IfController.condition">&apos;${test_selected_transactions}&apos;.indexOf(&apos;T02_Get_Vulnerability_Info_per_resource_and_Acknowledge&apos;)!=-1 || &apos;${test_selected_transactions}&apos;.indexOf(&apos;ALL&apos;)!=-1</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">false</boolProp>
+          </IfController>
+          <hashTree>
+            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Image Details Fetch And Ack Loop">
+              <stringProp name="LoopController.loops">${assigned_repo_images_count}</stringProp>
+            </LoopController>
+            <hashTree>
+              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_01_Get_List_Of_Images_Under_Repo" enabled="true">
+                <boolProp name="TransactionController.parent">true</boolProp>
+                <boolProp name="TransactionController.includeTimers">false</boolProp>
+              </TransactionController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_images_per_repo" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/images</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="registry" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                        <stringProp name="Argument.value">${assigned_registry}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">registry</stringProp>
+                      </elementProp>
+                      <elementProp name="filter" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">${assigned_repo}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">filter</stringProp>
+                      </elementProp>
+                      <elementProp name="page" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">1</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">page</stringProp>
+                      </elementProp>
+                      <elementProp name="include_totals" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">include_totals</stringProp>
+                      </elementProp>
+                      <elementProp name="order_by" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">name</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">order_by</stringProp>
+                      </elementProp>
+                      <elementProp name="image_name" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">${assigned_repo}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">image_name</stringProp>
+                      </elementProp>
+                      <elementProp name="name" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">${assigned_repo}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">name</stringProp>
+                      </elementProp>
+                      <elementProp name="page_size" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">1000</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">page_size</stringProp>
+                      </elementProp>
+                      <elementProp name="repository" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">${assigned_repo}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">repository</stringProp>
+                      </elementProp>
+                      <elementProp name="vulnerabilities" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">vulnerabilities</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Images tag" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">image_tag</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].tag</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                  <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="digest_id" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">digest_id</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].digest</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">NOT FOUND</stringProp>
+                  <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">import java.util.Random;
+
+// Get id count and thread count
+int idCount = vars.get(&quot;image_tag_matchNr&quot;) as Integer
+int threadCount = ctx.getThreadGroup().getNumThreads()
+
+log.info(&quot;ID count: &quot; + idCount)
+log.info(&quot;Threads count: &quot; + threadCount)
+
+if (idCount &lt; threadCount) {
+    // Assign first id to all threads
+    vars.put(&quot;assigned_image_tag&quot;, vars.get(&quot;image_tag_1&quot;))
+    vars.put(&quot;assigned_digest_id&quot;, vars.get(&quot;digest_id_1&quot;))
+} else {
+    // Generate a random index
+    Random rand = new Random()
+    int randomIndex = rand.nextInt(idCount) + 1  // Random number between 1 and idCount
+
+    // Assign values from randomly selected id
+    vars.put(&quot;assigned_image_tag&quot;, vars.get(&quot;image_tag_&quot; + randomIndex))
+    vars.put(&quot;assigned_digest_id&quot;, vars.get(&quot;digest_id_&quot; + randomIndex))
+}
+
+// Log the assigned values
+log.info(&quot;Assigned ID: &quot; + vars.get(&quot;assigned_image_tag&quot;) + 
+         &quot; Assigned Host ID: &quot; + vars.get(&quot;assigned_digest_id&quot;))
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_02_Get_Image_Details" enabled="true">
+                <boolProp name="TransactionController.parent">true</boolProp>
+                <boolProp name="TransactionController.includeTimers">false</boolProp>
+              </TransactionController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_images_details_per_image" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/images/${assigned_registry}/${__urlencode(${assigned_repo})}/${assigned_image_tag}/general</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="mutable" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">mutable</stringProp>
+                      </elementProp>
+                      <elementProp name="digest" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">${assigned_digest_id}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">digest</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - image name - to be processed" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">tbp_image_name</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.name</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                  <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - digest - to be processed" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">tbp_image_digest</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.digest</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                  <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - tag - to be processed" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">tbp_image_tag</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.tag</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                  <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                </JSONPostProcessor>
+                <hashTree/>
+              </hashTree>
+              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_03_Get_Vulnerabilities_Per_Image" enabled="true">
+                <boolProp name="TransactionController.parent">true</boolProp>
+                <boolProp name="TransactionController.includeTimers">false</boolProp>
+              </TransactionController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_vulnerability_info_per_image" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="mutable" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">mutable</stringProp>
+                      </elementProp>
+                      <elementProp name="include_vpatch_info" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">include_vpatch_info</stringProp>
+                      </elementProp>
+                      <elementProp name="show_negligible" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">show_negligible</stringProp>
+                      </elementProp>
+                      <elementProp name="page" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">1</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">page</stringProp>
+                      </elementProp>
+                      <elementProp name="pagesize" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">200</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">pagesize</stringProp>
+                      </elementProp>
+                      <elementProp name="skip_count" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">skip_count</stringProp>
+                      </elementProp>
+                      <elementProp name="hide_base_image" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">hide_base_image</stringProp>
+                      </elementProp>
+                      <elementProp name="digest" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">${tbp_image_digest}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">digest</stringProp>
+                      </elementProp>
+                      <elementProp name="image_name_exact_match" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">image_name_exact_match</stringProp>
+                      </elementProp>
+                      <elementProp name="registry_name" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                        <stringProp name="Argument.value">${assigned_registry}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">registry_name</stringProp>
+                      </elementProp>
+                      <elementProp name="image_name" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                        <stringProp name="Argument.value">${tbp_image_name}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">image_name</stringProp>
+                      </elementProp>
+                      <elementProp name="columns_name" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">legacy_columns</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">columns_name</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+              </hashTree>
+              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_04_Get_Resources_Per_Image" enabled="true">
+                <boolProp name="TransactionController.parent">true</boolProp>
+                <boolProp name="TransactionController.includeTimers">false</boolProp>
+              </TransactionController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_resource_info_per_image" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/images/${assigned_registry}/${__urlencode(${assigned_repo})}/${tbp_image_tag}/resources</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="mutable" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">mutable</stringProp>
+                      </elementProp>
+                      <elementProp name="show_negligible" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">show_negligible</stringProp>
+                      </elementProp>
+                      <elementProp name="show_files" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">show_files</stringProp>
+                      </elementProp>
+                      <elementProp name="hide_base_image" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">hide_base_image</stringProp>
+                      </elementProp>
+                      <elementProp name="order_by" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">-vulnerabilities</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">order_by</stringProp>
+                      </elementProp>
+                      <elementProp name="page" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">1</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">page</stringProp>
+                      </elementProp>
+                      <elementProp name="pagesize" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">200</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">pagesize</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+              </hashTree>
+              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_05_Get_High_Vuln_Per_Image" enabled="true">
+                <boolProp name="TransactionController.parent">true</boolProp>
+                <boolProp name="TransactionController.includeTimers">false</boolProp>
+              </TransactionController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_high_vuln_per_image" enabled="true">
+                  <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                  <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                  <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                  <stringProp name="HTTPSampler.path">api/v2/images/${assigned_registry}/${__urlencode(${assigned_repo})}/${tbp_image_tag}/resources</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="mutable" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">mutable</stringProp>
+                      </elementProp>
+                      <elementProp name="show_negligible" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">show_negligible</stringProp>
+                      </elementProp>
+                      <elementProp name="show_files" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">true</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">show_files</stringProp>
+                      </elementProp>
+                      <elementProp name="hide_base_image" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">false</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">hide_base_image</stringProp>
+                      </elementProp>
+                      <elementProp name="order_by" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">-vulnerabilities</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">order_by</stringProp>
+                      </elementProp>
+                      <elementProp name="page" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">1</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">page</stringProp>
+                      </elementProp>
+                      <elementProp name="pagesize" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">50</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">pagesize</stringProp>
+                      </elementProp>
+                      <elementProp name="severity" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">high</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        <stringProp name="Argument.name">severity</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - count of resources" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">all_resources_count</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.count</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                  <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_path" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">all_resource_path</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].path</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                  <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_cpe" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">all_resource_cpe</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].cpe</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                  <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                </JSONPostProcessor>
+                <hashTree/>
+              </hashTree>
+              <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables - For ACK">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="ack_page" elementType="Argument">
+                    <stringProp name="Argument.name">ack_page</stringProp>
+                    <stringProp name="Argument.value">1</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </Arguments>
+              <hashTree/>
+              <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Ack Loop Controller">
+                <stringProp name="LoopController.loops">${all_resources_count}</stringProp>
+              </LoopController>
+              <hashTree>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Image Scope">
+                  <stringProp name="IfController.condition">&apos;${ack_scope}&apos; == &apos;image&apos;</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                  <boolProp name="IfController.useExpression">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="script">log.info(&quot;Into IMAGE scope section as per the selection&quot;)</stringProp>
+                  </JSR223PreProcessor>
+                  <hashTree/>
+                  <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_06_Get_List_of_Vuln_Per_Resource" enabled="true">
+                    <boolProp name="TransactionController.parent">true</boolProp>
+                    <boolProp name="TransactionController.includeTimers">false</boolProp>
+                  </TransactionController>
+                  <hashTree>
+                    <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                      <stringProp name="scriptLanguage">groovy</stringProp>
+                      <stringProp name="parameters"></stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="script">int index = vars.get(&quot;__jm__Ack Loop Controller__idx&quot;) as int
+
+//log.info(&quot;Index: &quot; + index)
+
+String dynamicCpe = &quot;all_resource_cpe_&quot; + (index + 1)
+String dynamicPath = &quot;all_resource_path&quot; + (index + 1)
+
+String cpe_value = vars.get(dynamicCpe) ?: &quot;&quot;
+String path_value = vars.get(dynamicPath) ?: &quot;&quot;
+
+log.info(&quot;Current CPE: &quot; + cpe_value + &quot; | Current Path: &quot; + path_value)
+
+vars.put(&quot;current_resource_cpe&quot;, cpe_value)
+vars.put(&quot;current_resource_path&quot;, path_value)</stringProp>
+                    </JSR223PreProcessor>
+                    <hashTree/>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_vuln_per_resource" enabled="true">
+                      <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                      <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                      <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                      <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <stringProp name="HTTPSampler.method">GET</stringProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                        <collectionProp name="Arguments.arguments">
+                          <elementProp name="include_vpatch_info" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">include_vpatch_info</stringProp>
+                          </elementProp>
+                          <elementProp name="show_negligible" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">show_negligible</stringProp>
+                          </elementProp>
+                          <elementProp name="skip_count" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">skip_count</stringProp>
+                          </elementProp>
+                          <elementProp name="hide_base_image" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">false</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">hide_base_image</stringProp>
+                          </elementProp>
+                          <elementProp name="image_name" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${tbp_image_name}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">image_name</stringProp>
+                          </elementProp>
+                          <elementProp name="cpe" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${current_resource_cpe}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">cpe</stringProp>
+                          </elementProp>
+                          <elementProp name="path" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${current_resource_path}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">path</stringProp>
+                          </elementProp>
+                          <elementProp name="registry_name" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${assigned_registry}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">registry_name</stringProp>
+                          </elementProp>
+                          <elementProp name="page" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">page</stringProp>
+                          </elementProp>
+                          <elementProp name="pagesize" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">50</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">pagesize</stringProp>
+                          </elementProp>
+                          <elementProp name="image_name_exact_match" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">image_name_exact_match</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </elementProp>
+                    </HTTPSamplerProxy>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_type" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_type</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.type</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_name" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_name</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_path" enabled="false">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_path</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.path</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_path" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_path</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.path</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_version" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_version</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.version</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_cpe" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_cpe</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.cpe</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_image" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_image</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.image_name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_registry" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_registry</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.registry_name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - issue_name" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">issue_name</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - For ACK">
+                      <stringProp name="scriptLanguage">groovy</stringProp>
+                      <stringProp name="parameters"></stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="script">def getArray(variableName) {
+    def values = vars.get(variableName + &quot;_ALL&quot;)  // JMeter stores multiple matches with _ALL
+    return values ? values.split(&apos;,&apos;) : []  // Convert to array if not null
+}
+
+// Fetch extracted arrays from JMeter variables
+def issueNames = getArray(&quot;issue_name&quot;)
+def resourceTypes = getArray(&quot;resource_type&quot;)
+def resourceNames = getArray(&quot;resource_name&quot;)
+def resourceVersions = getArray(&quot;resource_version&quot;)
+def resourcePaths = vars.get(&quot;resource_path&quot;)
+def resourceCPEs = vars.get(&quot;resource_cpe&quot;)
+def image = vars.get(&quot;resource_image&quot;)
+def registry = vars.get(&quot;resource_registry&quot;)
+
+
+log.info(&quot;Issues: &quot; + issueNames)
+log.info(&quot;cpe: &quot; + resourceCPEs)
+log.info(&quot;Path: &quot; + resourcePaths)
+log.info(&quot;Image: &quot; + image)
+
+// Manually construct JSON string
+def jsonString = &apos;{ &quot;issues&quot;: [&apos;
+
+for (int i = 0; i &lt; issueNames.size(); i++) {  // ✅ Fix: Use .size() instead of .length
+    jsonString += &apos;&apos;&apos;
+        {
+            &quot;issue_type&quot;: &quot;vulnerability&quot;,
+            &quot;issue_name&quot;: &quot;&apos;&apos;&apos; + (i &lt; issueNames.size() ? issueNames[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_type&quot;: &quot;&apos;&apos;&apos; + (i &lt; resourceTypes.size() ? resourceTypes[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_cpe&quot;: &quot;&apos;&apos;&apos; + resourceCPEs + &apos;&apos;&apos;&quot;,
+            &quot;resource_name&quot;: &quot;&apos;&apos;&apos; + (i &lt; resourceNames.size() ? resourceNames[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_version&quot;: &quot;&apos;&apos;&apos; + (i &lt; resourceVersions.size() ? resourceVersions[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_path&quot;: &quot;&apos;&apos;&apos; + resourcePaths + &apos;&apos;&apos;&quot;,
+            &quot;docker_id&quot;: &quot;&quot;,
+		  &quot;expiration_days&quot;: 1,
+            &quot;registry_name&quot;: &quot;&apos;&apos;&apos; + registry + &apos;&apos;&apos;&quot;,
+            &quot;image_name&quot;: &quot;&apos;&apos;&apos; + image + &apos;&apos;&apos;&quot;
+        }&apos;&apos;&apos; 
+    if (i &lt; issueNames.size() - 1) { // ✅ Fix: Use .size() instead of .length
+        jsonString += &quot;,&quot;
+    }
+}
+
+jsonString += &apos;], &quot;comment&quot;: &quot;&apos; + image + &apos;-check&quot; }&apos;
+
+// Store the final JSON in a JMeter variable
+vars.put(&quot;finalJson&quot;, jsonString)
+
+log.info(&quot;Final JSON String: &quot; + jsonString)
+</stringProp>
+                    </JSR223PostProcessor>
+                    <hashTree/>
+                  </hashTree>
+                  <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_07_Acknowledge_Vulnerabilities" enabled="true">
+                    <boolProp name="TransactionController.parent">true</boolProp>
+                    <boolProp name="TransactionController.includeTimers">false</boolProp>
+                  </TransactionController>
+                  <hashTree>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="acknowledge_vulnerabilities" enabled="true">
+                      <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                      <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                      <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                      <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <stringProp name="HTTPSampler.method">POST</stringProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                        <collectionProp name="Arguments.arguments">
+                          <elementProp name="" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">${finalJson}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </elementProp>
+                    </HTTPSamplerProxy>
+                    <hashTree/>
+                    <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+                      <stringProp name="ConstantTimer.delay">1000</stringProp>
+                      <stringProp name="RandomTimer.range">10000</stringProp>
+                      <stringProp name="TestPlan.comments">Constant 1 second delay is mandatory. But when multiple threads are working probablity of ack/unack at same time got increased. To avoid using random delay</stringProp>
+                    </UniformRandomTimer>
+                    <hashTree/>
+                  </hashTree>
+                  <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_08_Get_Acknowledgments" enabled="true">
+                    <boolProp name="TransactionController.parent">true</boolProp>
+                    <boolProp name="TransactionController.includeTimers">false</boolProp>
+                  </TransactionController>
+                  <hashTree>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_acknowledgements" enabled="true">
+                      <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                      <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                      <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                      <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <stringProp name="HTTPSampler.method">GET</stringProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                        <collectionProp name="Arguments.arguments">
+                          <elementProp name="page" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">${ack_page}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">page</stringProp>
+                          </elementProp>
+                          <elementProp name="page_size" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">20</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">page_size</stringProp>
+                          </elementProp>
+                          <elementProp name="order_by" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">-date</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">order_by</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </elementProp>
+                    </HTTPSamplerProxy>
+                    <hashTree>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_count" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_count</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.count</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                        <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_issue_type" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_issue_type</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].issue_type</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_type" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_type</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_type</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_name" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_name</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_name</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_path" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_path</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_path</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                        <stringProp name="JSONPostProcessor.defaultValues">empty</stringProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_version" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_version</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_version</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_cpe" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_cpe</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_cpe</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_issue_name" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_issue_name</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].issue_name</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_image" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_image</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].image</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_registry" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_registry</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].registry</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - For Unack" enabled="true">
+                        <stringProp name="scriptLanguage">groovy</stringProp>
+                        <stringProp name="parameters"></stringProp>
+                        <stringProp name="filename"></stringProp>
+                        <stringProp name="cacheKey">true</stringProp>
+                        <stringProp name="script">// Function to extract values with proper alignment and default handling
+def getArray(variableName, defaultValue = &quot;&quot;) {
+    def count = vars.get(variableName + &quot;_matchNr&quot;) as Integer ?: 0  // Get the match count
+    def values = []
+    
+    for (int i = 0; i &lt; count; i++) {
+        def value = vars.get(variableName + &quot;_&quot; + i)
+        values.add(value != null ? value : defaultValue)  // Ensure null values are replaced
+    }
+    
+    return values
+}
+
+// Fetch extracted arrays with correct alignment
+def issueNames = getArray(&quot;ack_issue_name&quot;, &quot;unknown&quot;)
+def issueTypes = getArray(&quot;ack_issue_type&quot;, &quot;vulnerability&quot;)
+def resourceTypes = getArray(&quot;ack_resource_type&quot;, &quot;unknown&quot;)
+def resourceCPEs = getArray(&quot;ack_resource_cpe&quot;, &quot;unknown&quot;)
+def resourceNames = getArray(&quot;ack_resource_name&quot;, &quot;unknown&quot;)
+def resourceVersions = getArray(&quot;ack_resource_version&quot;, &quot;unknown&quot;)
+def resourcePaths = getArray(&quot;ack_resource_path&quot;, &quot;&quot;)  // Default to empty string
+def images = getArray(&quot;ack_image&quot;, &quot;&quot;)
+def registry = getArray(&quot;ack_registry&quot;)
+
+//def registry = vars.get(&quot;assigned_registry&quot;) ?: &quot;default_registry&quot;
+
+// Manually construct JSON
+def ackjsonString = &apos;{ &quot;issues&quot;: [&apos;
+
+boolean firstEntrySkipped = false  // Track whether to skip the first entry
+
+for (int i = 0; i &lt; resourceNames.size(); i++) {
+    // Skip first entry if it&apos;s completely empty
+    if (!firstEntrySkipped &amp;&amp; resourceNames[i] == &quot;unknown&quot; &amp;&amp; issueNames[i] == &quot;unknown&quot;) {
+        firstEntrySkipped = true
+        continue  // Skip empty first entry
+    }
+
+    ackjsonString += &apos;&apos;&apos;
+        {
+            &quot;issue_type&quot;: &quot;&apos;&apos;&apos; + issueTypes[i] + &apos;&apos;&apos;&quot;,
+            &quot;issue_name&quot;: &quot;&apos;&apos;&apos; + issueNames[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_type&quot;: &quot;&apos;&apos;&apos; + resourceTypes[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_cpe&quot;: &quot;&apos;&apos;&apos; + resourceCPEs[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_name&quot;: &quot;&apos;&apos;&apos; + resourceNames[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_version&quot;: &quot;&apos;&apos;&apos; + resourceVersions[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_path&quot;: &quot;&apos;&apos;&apos; + (resourcePaths[i] ?: &quot;&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;registry_name&quot;: &quot;&apos;&apos;&apos; + registry[i] + &apos;&apos;&apos;&quot;,
+            &quot;image_name&quot;: &quot;&apos;&apos;&apos; + images[i] + &apos;&apos;&apos;&quot;,
+            &quot;has_custom_severity&quot;: false
+        }&apos;&apos;&apos;
+    if (i &lt; resourceNames.size() - 1) {
+        ackjsonString += &quot;,&quot;
+    }
+}
+
+ackjsonString += &apos;], &quot;comment&quot;: &quot;Unacknowledgement&quot; }&apos;
+
+// Store the final JSON in a JMeter variable
+vars.put(&quot;finalackJson&quot;, ackjsonString)
+
+// Debugging
+//log.info(&quot;Final JSON String: &quot; + ackjsonString)
+</stringProp>
+                      </JSR223PostProcessor>
+                      <hashTree/>
+                    </hashTree>
+                  </hashTree>
+                  <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Execute Unack" enabled="true">
+                    <stringProp name="IfController.condition">&apos;${execute_unack}&apos; == &apos;true&apos;</stringProp>
+                    <boolProp name="IfController.evaluateAll">false</boolProp>
+                    <boolProp name="IfController.useExpression">false</boolProp>
+                  </IfController>
+                  <hashTree>
+                    <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_09_Unacknowledge" enabled="true">
+                      <boolProp name="TransactionController.parent">true</boolProp>
+                      <boolProp name="TransactionController.includeTimers">false</boolProp>
+                    </TransactionController>
+                    <hashTree>
+                      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="delete_acknowledgement" enabled="true">
+                        <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                        <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                        <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                        <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge/multiple</stringProp>
+                        <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                        <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                        <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                        <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                          <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.value">${finalackJson}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                          </collectionProp>
+                        </elementProp>
+                      </HTTPSamplerProxy>
+                      <hashTree>
+                        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - After delete to modify page value" enabled="true">
+                          <stringProp name="scriptLanguage">groovy</stringProp>
+                          <stringProp name="parameters"></stringProp>
+                          <stringProp name="filename"></stringProp>
+                          <stringProp name="cacheKey">true</stringProp>
+                          <stringProp name="script">// Check if DELETE request failed
+if (prev.getResponseCode() != &quot;204&quot;) {
+    def currentPage = vars.get(&quot;ack_page&quot;) as Integer
+    vars.put(&quot;ack_page&quot;, (currentPage + 1).toString())  // Increment page number
+    log.info(&quot;DELETE failed. Updating page number to: &quot; + vars.get(&quot;ack_page&quot;))
+} else if (prev.getResponseCode() == &quot;429&quot;) {
+	log.info(&quot;DELETE Failed with 429 too many requests error. Keeping page number: &quot; + vars.get(&quot;ack_page&quot;))
+} else {
+    log.info(&quot;DELETE successful. Keeping page number: &quot; + vars.get(&quot;ack_page&quot;))
+}
+</stringProp>
+                        </JSR223PostProcessor>
+                        <hashTree/>
+                      </hashTree>
+                      <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+                        <stringProp name="ConstantTimer.delay">1000</stringProp>
+                        <stringProp name="RandomTimer.range">10000</stringProp>
+                      </UniformRandomTimer>
+                      <hashTree/>
+                    </hashTree>
+                  </hashTree>
+                </hashTree>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Repo Scope">
+                  <stringProp name="IfController.condition">&apos;${ack_scope}&apos; == &apos;repo&apos;</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                  <boolProp name="IfController.useExpression">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="script">log.info(&quot;Into REPO scope section as per the selection&quot;)</stringProp>
+                  </JSR223PreProcessor>
+                  <hashTree/>
+                  <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_10_Get_List_of_Vuln_Per_Resource">
+                    <boolProp name="TransactionController.parent">true</boolProp>
+                    <boolProp name="TransactionController.includeTimers">false</boolProp>
+                  </TransactionController>
+                  <hashTree>
+                    <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                      <stringProp name="scriptLanguage">groovy</stringProp>
+                      <stringProp name="parameters"></stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="script">int index = vars.get(&quot;__jm__Ack Loop Controller__idx&quot;) as int
+
+//log.info(&quot;Index: &quot; + index)
+
+String dynamicCpe = &quot;all_resource_cpe_&quot; + (index + 1)
+String dynamicPath = &quot;all_resource_path&quot; + (index + 1)
+
+String cpe_value = vars.get(dynamicCpe) ?: &quot;&quot;
+String path_value = vars.get(dynamicPath) ?: &quot;&quot;
+
+log.info(&quot;Current CPE: &quot; + cpe_value + &quot; | Current Path: &quot; + path_value)
+
+vars.put(&quot;current_resource_cpe&quot;, cpe_value)
+vars.put(&quot;current_resource_path&quot;, path_value)</stringProp>
+                    </JSR223PreProcessor>
+                    <hashTree/>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_vuln_per_resource" enabled="true">
+                      <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                      <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                      <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                      <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <stringProp name="HTTPSampler.method">GET</stringProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                        <collectionProp name="Arguments.arguments">
+                          <elementProp name="include_vpatch_info" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">include_vpatch_info</stringProp>
+                          </elementProp>
+                          <elementProp name="show_negligible" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">show_negligible</stringProp>
+                          </elementProp>
+                          <elementProp name="skip_count" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">skip_count</stringProp>
+                          </elementProp>
+                          <elementProp name="hide_base_image" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">false</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">hide_base_image</stringProp>
+                          </elementProp>
+                          <elementProp name="image_name" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${tbp_image_name}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">image_name</stringProp>
+                          </elementProp>
+                          <elementProp name="cpe" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${current_resource_cpe}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">cpe</stringProp>
+                          </elementProp>
+                          <elementProp name="path" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${current_resource_path}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">path</stringProp>
+                          </elementProp>
+                          <elementProp name="registry_name" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${assigned_registry}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">registry_name</stringProp>
+                          </elementProp>
+                          <elementProp name="page" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">page</stringProp>
+                          </elementProp>
+                          <elementProp name="pagesize" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">50</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">pagesize</stringProp>
+                          </elementProp>
+                          <elementProp name="image_name_exact_match" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">image_name_exact_match</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </elementProp>
+                    </HTTPSamplerProxy>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_type" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_type</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.type</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_name" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_name</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_path" enabled="false">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_path</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.path</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_path" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_path</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.path</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_version" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_version</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.version</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_cpe" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_cpe</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.cpe</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_repo" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_repo</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].image_repository_name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_image" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_image</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.image_name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_registry" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_registry</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.registry_name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - issue_name" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">issue_name</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - For ACK">
+                      <stringProp name="scriptLanguage">groovy</stringProp>
+                      <stringProp name="parameters"></stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="script">def getArray(variableName) {
+    def values = vars.get(variableName + &quot;_ALL&quot;)  // JMeter stores multiple matches with _ALL
+    return values ? values.split(&apos;,&apos;) : []  // Convert to array if not null
+}
+
+// Fetch extracted arrays from JMeter variables
+def issueNames = getArray(&quot;issue_name&quot;)
+def resourceTypes = getArray(&quot;resource_type&quot;)
+def resourceNames = getArray(&quot;resource_name&quot;)
+def resourceVersions = getArray(&quot;resource_version&quot;)
+def resourcePaths = vars.get(&quot;resource_path&quot;)
+def resourceCPEs = vars.get(&quot;resource_cpe&quot;)
+def image = vars.get(&quot;resource_image&quot;)
+def registry = vars.get(&quot;resource_registry&quot;)
+def repository = vars.get(&quot;resource_repo&quot;)
+
+
+log.info(&quot;Issues: &quot; + issueNames)
+log.info(&quot;cpe: &quot; + resourceCPEs)
+log.info(&quot;Path: &quot; + resourcePaths)
+
+// Manually construct JSON string
+def jsonString = &apos;{ &quot;issues&quot;: [&apos;
+
+for (int i = 0; i &lt; issueNames.size(); i++) {  // ✅ Fix: Use .size() instead of .length
+    jsonString += &apos;&apos;&apos;
+        {
+            &quot;issue_type&quot;: &quot;vulnerability&quot;,
+            &quot;issue_name&quot;: &quot;&apos;&apos;&apos; + (i &lt; issueNames.size() ? issueNames[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_type&quot;: &quot;&apos;&apos;&apos; + (i &lt; resourceTypes.size() ? resourceTypes[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_cpe&quot;: &quot;&apos;&apos;&apos; + resourceCPEs + &apos;&apos;&apos;&quot;,
+            &quot;resource_name&quot;: &quot;&apos;&apos;&apos; + (i &lt; resourceNames.size() ? resourceNames[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_version&quot;: &quot;&apos;&apos;&apos; + (i &lt; resourceVersions.size() ? resourceVersions[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_path&quot;: &quot;&apos;&apos;&apos; + resourcePaths + &apos;&apos;&apos;&quot;,
+            &quot;repository_name&quot;: &quot;&apos;&apos;&apos; + repository + &apos;&apos;&apos;&quot;,
+            &quot;docker_id&quot;: &quot;&quot;,
+		  &quot;expiration_days&quot;: 1,
+            &quot;registry_name&quot;: &quot;&apos;&apos;&apos; + registry + &apos;&apos;&apos;&quot;
+        }&apos;&apos;&apos; 
+    if (i &lt; issueNames.size() - 1) { // ✅ Fix: Use .size() instead of .length
+        jsonString += &quot;,&quot;
+    }
+}
+
+jsonString += &apos;], &quot;comment&quot;: &quot;&apos; + repository + &apos;-check&quot; }&apos;
+
+// Store the final JSON in a JMeter variable
+vars.put(&quot;finalJson&quot;, jsonString)
+
+//log.info(&quot;Final JSON String: &quot; + jsonString)
+</stringProp>
+                    </JSR223PostProcessor>
+                    <hashTree/>
+                  </hashTree>
+                  <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_11_Acknowledge_Vulnerabilities" enabled="true">
+                    <boolProp name="TransactionController.parent">true</boolProp>
+                    <boolProp name="TransactionController.includeTimers">false</boolProp>
+                  </TransactionController>
+                  <hashTree>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="acknowledge_vulnerabilities" enabled="true">
+                      <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                      <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                      <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                      <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <stringProp name="HTTPSampler.method">POST</stringProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                        <collectionProp name="Arguments.arguments">
+                          <elementProp name="" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">${finalJson}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </elementProp>
+                    </HTTPSamplerProxy>
+                    <hashTree/>
+                    <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+                      <stringProp name="ConstantTimer.delay">1000</stringProp>
+                      <stringProp name="RandomTimer.range">10000</stringProp>
+                      <stringProp name="TestPlan.comments">Constant 1 second delay is mandatory. But when multiple threads are working probablity of ack/unack at same time got increased. To avoid using random delay</stringProp>
+                    </UniformRandomTimer>
+                    <hashTree/>
+                  </hashTree>
+                  <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_12_Get_Acknowledgments" enabled="true">
+                    <boolProp name="TransactionController.parent">true</boolProp>
+                    <boolProp name="TransactionController.includeTimers">false</boolProp>
+                  </TransactionController>
+                  <hashTree>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_acknowledgements" enabled="true">
+                      <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                      <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                      <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                      <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <stringProp name="HTTPSampler.method">GET</stringProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                        <collectionProp name="Arguments.arguments">
+                          <elementProp name="page" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">${ack_page}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">page</stringProp>
+                          </elementProp>
+                          <elementProp name="page_size" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">20</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">page_size</stringProp>
+                          </elementProp>
+                          <elementProp name="order_by" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">-date</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">order_by</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </elementProp>
+                    </HTTPSamplerProxy>
+                    <hashTree>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_count" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_count</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.count</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                        <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_issue_type" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_issue_type</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].issue_type</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_type" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_type</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_type</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_name" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_name</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_name</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_path" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_path</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_path</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                        <stringProp name="JSONPostProcessor.defaultValues">empty</stringProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_version" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_version</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_version</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_cpe" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_cpe</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_cpe</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_issue_name" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_issue_name</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].issue_name</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_image" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_image</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].image</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_registry" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_registry</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].registry</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - For Unack" enabled="true">
+                        <stringProp name="scriptLanguage">groovy</stringProp>
+                        <stringProp name="parameters"></stringProp>
+                        <stringProp name="filename"></stringProp>
+                        <stringProp name="cacheKey">true</stringProp>
+                        <stringProp name="script">// Function to extract values with proper alignment and default handling
+def getArray(variableName, defaultValue = &quot;&quot;) {
+    def count = vars.get(variableName + &quot;_matchNr&quot;) as Integer ?: 0  // Get the match count
+    def values = []
+    
+    for (int i = 0; i &lt; count; i++) {
+        def value = vars.get(variableName + &quot;_&quot; + i)
+        values.add(value != null ? value : defaultValue)  // Ensure null values are replaced
+    }
+    
+    return values
+}
+
+// Fetch extracted arrays with correct alignment
+def issueNames = getArray(&quot;ack_issue_name&quot;, &quot;unknown&quot;)
+def issueTypes = getArray(&quot;ack_issue_type&quot;, &quot;vulnerability&quot;)
+def resourceTypes = getArray(&quot;ack_resource_type&quot;, &quot;unknown&quot;)
+def resourceCPEs = getArray(&quot;ack_resource_cpe&quot;, &quot;unknown&quot;)
+def resourceNames = getArray(&quot;ack_resource_name&quot;, &quot;unknown&quot;)
+def resourceVersions = getArray(&quot;ack_resource_version&quot;, &quot;unknown&quot;)
+def resourcePaths = getArray(&quot;ack_resource_path&quot;, &quot;&quot;)  // Default to empty string
+def images = getArray(&quot;ack_image&quot;, &quot;&quot;)
+def registry = getArray(&quot;ack_registry&quot;)
+
+//def registry = vars.get(&quot;assigned_registry&quot;) ?: &quot;default_registry&quot;
+
+// Manually construct JSON
+def ackjsonString = &apos;{ &quot;issues&quot;: [&apos;
+
+boolean firstEntrySkipped = false  // Track whether to skip the first entry
+
+for (int i = 0; i &lt; resourceNames.size(); i++) {
+    // Skip first entry if it&apos;s completely empty
+    if (!firstEntrySkipped &amp;&amp; resourceNames[i] == &quot;unknown&quot; &amp;&amp; issueNames[i] == &quot;unknown&quot;) {
+        firstEntrySkipped = true
+        continue  // Skip empty first entry
+    }
+
+    ackjsonString += &apos;&apos;&apos;
+        {
+            &quot;issue_type&quot;: &quot;&apos;&apos;&apos; + issueTypes[i] + &apos;&apos;&apos;&quot;,
+            &quot;issue_name&quot;: &quot;&apos;&apos;&apos; + issueNames[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_type&quot;: &quot;&apos;&apos;&apos; + resourceTypes[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_cpe&quot;: &quot;&apos;&apos;&apos; + resourceCPEs[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_name&quot;: &quot;&apos;&apos;&apos; + resourceNames[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_version&quot;: &quot;&apos;&apos;&apos; + resourceVersions[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_path&quot;: &quot;&apos;&apos;&apos; + (resourcePaths[i] ?: &quot;&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;registry_name&quot;: &quot;&apos;&apos;&apos; + registry[i] + &apos;&apos;&apos;&quot;,
+            &quot;image_name&quot;: &quot;&apos;&apos;&apos; + images[i] + &apos;&apos;&apos;&quot;,
+            &quot;has_custom_severity&quot;: false
+        }&apos;&apos;&apos;
+    if (i &lt; resourceNames.size() - 1) {
+        ackjsonString += &quot;,&quot;
+    }
+}
+
+ackjsonString += &apos;], &quot;comment&quot;: &quot;Unacknowledgement&quot; }&apos;
+
+// Store the final JSON in a JMeter variable
+vars.put(&quot;finalackJson&quot;, ackjsonString)
+
+// Debugging
+//log.info(&quot;Final JSON String: &quot; + ackjsonString)
+</stringProp>
+                      </JSR223PostProcessor>
+                      <hashTree/>
+                    </hashTree>
+                  </hashTree>
+                  <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Execute Unack" enabled="true">
+                    <stringProp name="IfController.condition">&apos;${execute_unack}&apos; == &apos;true&apos;</stringProp>
+                    <boolProp name="IfController.evaluateAll">false</boolProp>
+                    <boolProp name="IfController.useExpression">false</boolProp>
+                  </IfController>
+                  <hashTree>
+                    <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_13_Unacknowledge" enabled="true">
+                      <boolProp name="TransactionController.parent">true</boolProp>
+                      <boolProp name="TransactionController.includeTimers">false</boolProp>
+                    </TransactionController>
+                    <hashTree>
+                      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="delete_acknowledgement" enabled="true">
+                        <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                        <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                        <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                        <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge/multiple</stringProp>
+                        <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                        <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                        <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                        <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                          <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.value">${finalackJson}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                          </collectionProp>
+                        </elementProp>
+                      </HTTPSamplerProxy>
+                      <hashTree>
+                        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - After delete to modify page value" enabled="true">
+                          <stringProp name="scriptLanguage">groovy</stringProp>
+                          <stringProp name="parameters"></stringProp>
+                          <stringProp name="filename"></stringProp>
+                          <stringProp name="cacheKey">true</stringProp>
+                          <stringProp name="script">// Check if DELETE request failed
+if (prev.getResponseCode() != &quot;204&quot;) {
+    def currentPage = vars.get(&quot;ack_page&quot;) as Integer
+    vars.put(&quot;ack_page&quot;, (currentPage + 1).toString())  // Increment page number
+    log.info(&quot;DELETE failed. Updating page number to: &quot; + vars.get(&quot;ack_page&quot;))
+} else if (prev.getResponseCode() == &quot;429&quot;) {
+	log.info(&quot;DELETE Failed with 429 too many requests error. Keeping page number: &quot; + vars.get(&quot;ack_page&quot;))
+} else {
+    log.info(&quot;DELETE successful. Keeping page number: &quot; + vars.get(&quot;ack_page&quot;))
+}
+</stringProp>
+                        </JSR223PostProcessor>
+                        <hashTree/>
+                      </hashTree>
+                      <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+                        <stringProp name="ConstantTimer.delay">1000</stringProp>
+                        <stringProp name="RandomTimer.range">10000</stringProp>
+                      </UniformRandomTimer>
+                      <hashTree/>
+                    </hashTree>
+                  </hashTree>
+                </hashTree>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - All Scope">
+                  <stringProp name="IfController.condition">&apos;${ack_scope}&apos; == &apos;all&apos;</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                  <boolProp name="IfController.useExpression">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="script">log.info(&quot;Into ALL scope section as per the selection&quot;)</stringProp>
+                  </JSR223PreProcessor>
+                  <hashTree/>
+                  <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_14_Get_List_of_Vuln_Per_Resource">
+                    <boolProp name="TransactionController.parent">true</boolProp>
+                    <boolProp name="TransactionController.includeTimers">false</boolProp>
+                  </TransactionController>
+                  <hashTree>
+                    <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                      <stringProp name="scriptLanguage">groovy</stringProp>
+                      <stringProp name="parameters"></stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="script">int index = vars.get(&quot;__jm__Ack Loop Controller__idx&quot;) as int
+
+//log.info(&quot;Index: &quot; + index)
+
+String dynamicCpe = &quot;all_resource_cpe_&quot; + (index + 1)
+String dynamicPath = &quot;all_resource_path&quot; + (index + 1)
+
+String cpe_value = vars.get(dynamicCpe) ?: &quot;&quot;
+String path_value = vars.get(dynamicPath) ?: &quot;&quot;
+
+log.info(&quot;Current CPE: &quot; + cpe_value + &quot; | Current Path: &quot; + path_value)
+
+vars.put(&quot;current_resource_cpe&quot;, cpe_value)
+vars.put(&quot;current_resource_path&quot;, path_value)</stringProp>
+                    </JSR223PreProcessor>
+                    <hashTree/>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_vuln_per_resource">
+                      <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                      <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                      <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                      <stringProp name="HTTPSampler.path">api/v2/risks/vulnerabilities</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <stringProp name="HTTPSampler.method">GET</stringProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                        <collectionProp name="Arguments.arguments">
+                          <elementProp name="include_vpatch_info" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">include_vpatch_info</stringProp>
+                          </elementProp>
+                          <elementProp name="show_negligible" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">show_negligible</stringProp>
+                          </elementProp>
+                          <elementProp name="skip_count" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">skip_count</stringProp>
+                          </elementProp>
+                          <elementProp name="hide_base_image" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">false</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">hide_base_image</stringProp>
+                          </elementProp>
+                          <elementProp name="image_name" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${tbp_image_name}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">image_name</stringProp>
+                          </elementProp>
+                          <elementProp name="cpe" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${current_resource_cpe}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">cpe</stringProp>
+                          </elementProp>
+                          <elementProp name="path" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${current_resource_path}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">path</stringProp>
+                          </elementProp>
+                          <elementProp name="registry_name" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                            <stringProp name="Argument.value">${assigned_registry}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">registry_name</stringProp>
+                          </elementProp>
+                          <elementProp name="page" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">page</stringProp>
+                          </elementProp>
+                          <elementProp name="pagesize" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">50</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">pagesize</stringProp>
+                          </elementProp>
+                          <elementProp name="image_name_exact_match" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">true</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">image_name_exact_match</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </elementProp>
+                    </HTTPSamplerProxy>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_type" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_type</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.type</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_name" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_name</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_path" enabled="false">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_path</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.path</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_path" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_path</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.path</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_version" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_version</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource.version</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_cpe" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_cpe</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.cpe</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_image" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_image</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.image_name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - resource_registry" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">resource_registry</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.query.registry_name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - issue_name" enabled="true">
+                      <stringProp name="JSONPostProcessor.referenceNames">issue_name</stringProp>
+                      <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].name</stringProp>
+                      <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                      <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                    </JSONPostProcessor>
+                    <hashTree/>
+                    <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - For ACK">
+                      <stringProp name="scriptLanguage">groovy</stringProp>
+                      <stringProp name="parameters"></stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="script">def getArray(variableName) {
+    def values = vars.get(variableName + &quot;_ALL&quot;)  // JMeter stores multiple matches with _ALL
+    return values ? values.split(&apos;,&apos;) : []  // Convert to array if not null
+}
+
+// Fetch extracted arrays from JMeter variables
+def issueNames = getArray(&quot;issue_name&quot;)
+def resourceTypes = getArray(&quot;resource_type&quot;)
+def resourceNames = getArray(&quot;resource_name&quot;)
+def resourceVersions = getArray(&quot;resource_version&quot;)
+def resourcePaths = vars.get(&quot;resource_path&quot;)
+def resourceCPEs = vars.get(&quot;resource_cpe&quot;)
+def image = vars.get(&quot;resource_image&quot;)
+def registry = vars.get(&quot;resource_registry&quot;)
+
+
+log.info(&quot;Issues: &quot; + issueNames)
+log.info(&quot;cpe: &quot; + resourceCPEs)
+log.info(&quot;Path: &quot; + resourcePaths)
+
+// Manually construct JSON string
+def jsonString = &apos;{ &quot;issues&quot;: [&apos;
+
+for (int i = 0; i &lt; issueNames.size(); i++) {  // ✅ Fix: Use .size() instead of .length
+    jsonString += &apos;&apos;&apos;
+        {
+            &quot;issue_type&quot;: &quot;vulnerability&quot;,
+            &quot;issue_name&quot;: &quot;&apos;&apos;&apos; + (i &lt; issueNames.size() ? issueNames[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_type&quot;: &quot;&apos;&apos;&apos; + (i &lt; resourceTypes.size() ? resourceTypes[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_cpe&quot;: &quot;&apos;&apos;&apos; + resourceCPEs + &apos;&apos;&apos;&quot;,
+            &quot;resource_name&quot;: &quot;&apos;&apos;&apos; + (i &lt; resourceNames.size() ? resourceNames[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_version&quot;: &quot;&apos;&apos;&apos; + (i &lt; resourceVersions.size() ? resourceVersions[i] : &quot;unknown&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;resource_path&quot;: &quot;&apos;&apos;&apos; + resourcePaths + &apos;&apos;&apos;&quot;,
+		  &quot;expiration_days&quot;: 1,
+            &quot;docker_id&quot;: &quot;&quot;
+        }&apos;&apos;&apos; 
+    if (i &lt; issueNames.size() - 1) { // ✅ Fix: Use .size() instead of .length
+        jsonString += &quot;,&quot;
+    }
+}
+
+jsonString += &apos;], &quot;comment&quot;: &quot;All scope&quot; }&apos;
+
+// Store the final JSON in a JMeter variable
+vars.put(&quot;finalJson&quot;, jsonString)
+
+//log.info(&quot;Final JSON String: &quot; + jsonString)
+</stringProp>
+                    </JSR223PostProcessor>
+                    <hashTree/>
+                  </hashTree>
+                  <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_15_Acknowledge_Vulnerabilities">
+                    <boolProp name="TransactionController.parent">true</boolProp>
+                    <boolProp name="TransactionController.includeTimers">false</boolProp>
+                  </TransactionController>
+                  <hashTree>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="acknowledge_vulnerabilities" enabled="true">
+                      <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                      <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                      <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                      <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <stringProp name="HTTPSampler.method">POST</stringProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                        <collectionProp name="Arguments.arguments">
+                          <elementProp name="" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">${finalJson}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </elementProp>
+                    </HTTPSamplerProxy>
+                    <hashTree/>
+                    <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+                      <stringProp name="ConstantTimer.delay">1000</stringProp>
+                      <stringProp name="RandomTimer.range">10000</stringProp>
+                      <stringProp name="TestPlan.comments">Constant 1 second delay is mandatory. But when multiple threads are working probablity of ack/unack at same time got increased. To avoid using random delay</stringProp>
+                    </UniformRandomTimer>
+                    <hashTree/>
+                  </hashTree>
+                  <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_16_Get_Acknowledgments" enabled="true">
+                    <boolProp name="TransactionController.parent">true</boolProp>
+                    <boolProp name="TransactionController.includeTimers">false</boolProp>
+                  </TransactionController>
+                  <hashTree>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="get_acknowledgements" enabled="true">
+                      <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                      <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                      <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                      <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <stringProp name="HTTPSampler.method">GET</stringProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                        <collectionProp name="Arguments.arguments">
+                          <elementProp name="page" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">${ack_page}</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">page</stringProp>
+                          </elementProp>
+                          <elementProp name="page_size" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">20</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">page_size</stringProp>
+                          </elementProp>
+                          <elementProp name="order_by" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">-date</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">order_by</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </elementProp>
+                    </HTTPSamplerProxy>
+                    <hashTree>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_count" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_count</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.count</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                        <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_issue_type" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_issue_type</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].issue_type</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_type" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_type</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_type</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_name" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_name</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_name</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_path" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_path</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_path</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                        <stringProp name="JSONPostProcessor.defaultValues">empty</stringProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_version" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_version</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_version</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_resource_cpe" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_resource_cpe</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].resource_cpe</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_issue_name" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_issue_name</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].issue_name</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_image" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_image</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].image</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ack_registry" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">ack_registry</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.result[*].registry</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+                        <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - For Unack" enabled="true">
+                        <stringProp name="scriptLanguage">groovy</stringProp>
+                        <stringProp name="parameters"></stringProp>
+                        <stringProp name="filename"></stringProp>
+                        <stringProp name="cacheKey">true</stringProp>
+                        <stringProp name="script">// Function to extract values with proper alignment and default handling
+def getArray(variableName, defaultValue = &quot;&quot;) {
+    def count = vars.get(variableName + &quot;_matchNr&quot;) as Integer ?: 0  // Get the match count
+    def values = []
+    
+    for (int i = 0; i &lt; count; i++) {
+        def value = vars.get(variableName + &quot;_&quot; + i)
+        values.add(value != null ? value : defaultValue)  // Ensure null values are replaced
+    }
+    
+    return values
+}
+
+// Fetch extracted arrays with correct alignment
+def issueNames = getArray(&quot;ack_issue_name&quot;, &quot;unknown&quot;)
+def issueTypes = getArray(&quot;ack_issue_type&quot;, &quot;vulnerability&quot;)
+def resourceTypes = getArray(&quot;ack_resource_type&quot;, &quot;unknown&quot;)
+def resourceCPEs = getArray(&quot;ack_resource_cpe&quot;, &quot;unknown&quot;)
+def resourceNames = getArray(&quot;ack_resource_name&quot;, &quot;unknown&quot;)
+def resourceVersions = getArray(&quot;ack_resource_version&quot;, &quot;unknown&quot;)
+def resourcePaths = getArray(&quot;ack_resource_path&quot;, &quot;&quot;)  // Default to empty string
+def images = getArray(&quot;ack_image&quot;, &quot;&quot;)
+def registry = getArray(&quot;ack_registry&quot;)
+
+//def registry = vars.get(&quot;assigned_registry&quot;) ?: &quot;default_registry&quot;
+
+// Manually construct JSON
+def ackjsonString = &apos;{ &quot;issues&quot;: [&apos;
+
+boolean firstEntrySkipped = false  // Track whether to skip the first entry
+
+for (int i = 0; i &lt; resourceNames.size(); i++) {
+    // Skip first entry if it&apos;s completely empty
+    if (!firstEntrySkipped &amp;&amp; resourceNames[i] == &quot;unknown&quot; &amp;&amp; issueNames[i] == &quot;unknown&quot;) {
+        firstEntrySkipped = true
+        continue  // Skip empty first entry
+    }
+
+    ackjsonString += &apos;&apos;&apos;
+        {
+            &quot;issue_type&quot;: &quot;&apos;&apos;&apos; + issueTypes[i] + &apos;&apos;&apos;&quot;,
+            &quot;issue_name&quot;: &quot;&apos;&apos;&apos; + issueNames[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_type&quot;: &quot;&apos;&apos;&apos; + resourceTypes[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_cpe&quot;: &quot;&apos;&apos;&apos; + resourceCPEs[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_name&quot;: &quot;&apos;&apos;&apos; + resourceNames[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_version&quot;: &quot;&apos;&apos;&apos; + resourceVersions[i] + &apos;&apos;&apos;&quot;,
+            &quot;resource_path&quot;: &quot;&apos;&apos;&apos; + (resourcePaths[i] ?: &quot;&quot;) + &apos;&apos;&apos;&quot;,
+            &quot;registry_name&quot;: &quot;&apos;&apos;&apos; + registry[i] + &apos;&apos;&apos;&quot;,
+            &quot;image_name&quot;: &quot;&apos;&apos;&apos; + images[i] + &apos;&apos;&apos;&quot;,
+            &quot;has_custom_severity&quot;: false
+        }&apos;&apos;&apos;
+    if (i &lt; resourceNames.size() - 1) {
+        ackjsonString += &quot;,&quot;
+    }
+}
+
+ackjsonString += &apos;], &quot;comment&quot;: &quot;Unacknowledgement&quot; }&apos;
+
+// Store the final JSON in a JMeter variable
+vars.put(&quot;finalackJson&quot;, ackjsonString)
+
+// Debugging
+//log.info(&quot;Final JSON String: &quot; + ackjsonString)
+</stringProp>
+                      </JSR223PostProcessor>
+                      <hashTree/>
+                    </hashTree>
+                  </hashTree>
+                  <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Execute Unack" enabled="true">
+                    <stringProp name="IfController.condition">&apos;${execute_unack}&apos; == &apos;true&apos;</stringProp>
+                    <boolProp name="IfController.evaluateAll">false</boolProp>
+                    <boolProp name="IfController.useExpression">true</boolProp>
+                  </IfController>
+                  <hashTree>
+                    <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T02_17_Unacknowledge" enabled="true">
+                      <boolProp name="TransactionController.parent">true</boolProp>
+                      <boolProp name="TransactionController.includeTimers">false</boolProp>
+                    </TransactionController>
+                    <hashTree>
+                      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="delete_acknowledgement" enabled="true">
+                        <stringProp name="HTTPSampler.domain">${aqua_ip}</stringProp>
+                        <stringProp name="HTTPSampler.port">${aqua_port}</stringProp>
+                        <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                        <stringProp name="HTTPSampler.path">api/v2/risks/acknowledge/multiple</stringProp>
+                        <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                        <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                        <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                        <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                          <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.value">${finalackJson}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                          </collectionProp>
+                        </elementProp>
+                      </HTTPSamplerProxy>
+                      <hashTree>
+                        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - After delete to modify page value" enabled="true">
+                          <stringProp name="scriptLanguage">groovy</stringProp>
+                          <stringProp name="parameters"></stringProp>
+                          <stringProp name="filename"></stringProp>
+                          <stringProp name="cacheKey">true</stringProp>
+                          <stringProp name="script">// Check if DELETE request failed
+if (prev.getResponseCode() != &quot;204&quot;) {
+    def currentPage = vars.get(&quot;ack_page&quot;) as Integer
+    vars.put(&quot;ack_page&quot;, (currentPage + 1).toString())  // Increment page number
+    log.info(&quot;DELETE failed. Updating page number to: &quot; + vars.get(&quot;ack_page&quot;))
+} else if (prev.getResponseCode() == &quot;429&quot;) {
+	log.info(&quot;DELETE Failed with 429 too many requests error. Keeping page number: &quot; + vars.get(&quot;ack_page&quot;))
+} else {
+    log.info(&quot;DELETE successful. Keeping page number: &quot; + vars.get(&quot;ack_page&quot;))
+}
+</stringProp>
+                        </JSR223PostProcessor>
+                        <hashTree/>
+                      </hashTree>
+                      <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+                        <stringProp name="ConstantTimer.delay">1000</stringProp>
+                        <stringProp name="RandomTimer.range">10000</stringProp>
+                      </UniformRandomTimer>
+                      <hashTree/>
+                    </hashTree>
+                  </hashTree>
+                </hashTree>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.SynthesisReportGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Synthesis Report (filtered)" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <longProp name="interval_grouping">500</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
